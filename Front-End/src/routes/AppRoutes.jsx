@@ -3,16 +3,14 @@ import { Routes, Route } from 'react-router-dom'
 import Users from '../pages/Users';
 import Profile from '../pages/Profile';
 import PageNotAllowed from '../pages/PNA';
-import { DebtNew } from '../pages/DebtNew';
+import StartGame from '../pages/StartGame';
 import NewLogin from '../pages/NewLogin';
-import DebtHome from '../pages/DebtHome'
 import PNF from '../pages/PNF';
 import Theme from '../theme/Theme';
 import { UserInfoEdit } from '../pages/UserInfoEdit';
-import ChatApp from '../pages/Chat';
 import ProtectedRoute from './ProtectedRoute';
-import SeedFlower from '../pages/SeedFlower';
 import { NewUser } from '../pages/UserNew';
+import GameHistory from '../pages/GameHistory';
 
 
 export default function AppRoutes() {
@@ -22,15 +20,13 @@ export default function AppRoutes() {
             <Routes>
                 <Route path="/*" element={<Theme component={<PNF />} />}/>
                 <Route path='/login' element={<Theme component={<NewLogin />} />} />
-                <Route path='/debtnew' element={<ProtectedRoute><Theme component={<DebtNew />} /></ProtectedRoute>} />
+                <Route path='/startGame' element={<ProtectedRoute><Theme component={<StartGame />} /></ProtectedRoute>} />
                 <Route path='/users' element={<ProtectedRoute><Theme component={<Users />} /></ProtectedRoute>} />
                 <Route path='/newuser' element={<ProtectedRoute><Theme component={<NewUser />} /></ProtectedRoute>} />
                 <Route path='/userinfo' >
                     <Route path=':id' element={<ProtectedRoute><Theme component={<UserInfoEdit />} /></ProtectedRoute>} />
                 </Route>
-                <Route path='/ani' element={<ProtectedRoute><Theme component={<SeedFlower />} /></ProtectedRoute>} />
-                <Route path='/chat' element={<ProtectedRoute><Theme component={<ChatApp />} /></ProtectedRoute>} />
-                <Route path='/' element={<ProtectedRoute><Theme component={<DebtHome />} /></ProtectedRoute>} />
+                <Route path='/gameHistory' element={<ProtectedRoute><Theme component={<GameHistory />} /></ProtectedRoute>} />
                 <Route path='/profile' element={<ProtectedRoute><Theme component={<Profile />} /></ProtectedRoute>} />
                 <Route path='/pna' element={<Theme component={<PageNotAllowed />} />} />
             </Routes>

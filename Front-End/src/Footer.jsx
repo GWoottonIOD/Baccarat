@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box, Typography, Link } from '@mui/material';
-import Copyright from './components/Copyright';
+import { Box, Typography } from '@mui/material';
 
 export default function Footer() {
 
@@ -9,7 +8,7 @@ export default function Footer() {
             {/* Footer */}
             <Box sx={{ bgcolor: 'background.paper', p: 0 }} component="footer">
                 <Typography variant="h6" align="center" gutterBottom>
-                    Buddy
+                    Baccarat Central
                 </Typography>
                 <Typography
                     variant="subtitle1"

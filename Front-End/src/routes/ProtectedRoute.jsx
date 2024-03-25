@@ -5,9 +5,9 @@ import { useCurrentUserContext } from "../context/CurrentUserContext";
 function ProtectedRoute({ redirectPath = "/pna", children }) {
   const { currentUser } = useCurrentUserContext()
 
-  if (!currentUser) {
-    return <Navigate to={redirectPath} replace />;
-  }
+  // if (!currentUser) {
+  //   return <Navigate to={redirectPath} replace />;
+  // }
   // works for both nested and standalone routes
   return children ? children : <Outlet />;
 }
