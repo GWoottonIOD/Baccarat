@@ -3,11 +3,15 @@ import DropDown from '../DropDown'
 import { Grid, Typography } from '@mui/material'
 import StoreCards from './StoreCards';
 import AddCard from './AddCard';
+import { useFirstCardContext } from '../../context/FirstCardContext';
+import { useSecondCardContext } from '../../context/SecondCardContext';
+import { useThirdCardContext } from '../../context/ThirdCardContext';
+import { ruleOne } from '../Rules/Rules';
 
 export default function AddBankerCards(props) {
-  const [firstCard, setFirstCard] = useState(null);
-  const [secondCard, setSecondCard] = useState(null);
-  const [thirdCard, setThirdCard] = useState(null);
+  const {firstCard, setFirstCard} = useFirstCardContext()
+  const {secondCard, setSecondCard} = useSecondCardContext()
+  const {thirdCard, setThirdCard} = useThirdCardContext()
   const [number, setNumber] = useState([]);
   const [suit, setSuit] = useState([]);
 
@@ -24,8 +28,8 @@ export default function AddBankerCards(props) {
     {id: 3, name: 'Spades'}, {id: 4, name: 'Diamonds'}
   ]
 
-  const parsedResult = firstCard && secondCard?parseInt(firstCard.number)+parseInt(secondCard.number):null
-  const parsedResultAfterString = parsedResult > 10? parseInt(String(parsedResult).slice(1,2)):null
+  // const parsedResult = firstCard && secondCard?parseInt(firstCard.number)+parseInt(secondCard.number):null
+  // const parsedResultAfterString = parsedResult > 10? parseInt(String(parsedResult).slice(1,2)):null
 
   return (
     <>
@@ -49,8 +53,8 @@ export default function AddBankerCards(props) {
       {firstCard && !secondCard
         ? <AddCard setCard={setSecondCard} number={number} suit={suit}/> 
         : null}
-      {secondCard && parsedResultAfterString <= 5
-        && props.playersHand.length === 2
+      {ruleOne(firstCard, secondCard)
+        // && props.playersHand.length === 2
         ? <AddCard setCard={setThirdCard} number={number} suit={suit}/> 
         : null}
       </Grid>

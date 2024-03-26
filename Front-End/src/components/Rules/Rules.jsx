@@ -1,10 +1,18 @@
-import { useFirstCardContext } from "../../context/FirstCardContext";
+export const ruleOne = (firstCard, secondCard) => {
+    const parsedResult = firstCard && secondCard?parseInt(firstCard.number)+parseInt(secondCard.number):null
+    const parsedResultAfterString = parsedResult > 10? parseInt(String(parsedResult).slice(1,2)):null
+    if (secondCard && parsedResultAfterString <= 5 ) {
+        return true
+    }
+}  
 
-const {firstCard, setFirstCard} = useFirstCardContext({});
-
-export const ruleOne = null
-
-export const ruleTwo = null
+export const ruleTwo = () => {
+    const parsedResult = firstCard && secondCard?parseInt(firstCard.number)+parseInt(secondCard.number):null
+    const parsedResultAfterString = parsedResult > 10? parseInt(String(parsedResult).slice(1,2)):null
+    if (parsedResultAfterString === 10) {
+        return true
+    }
+}
 
 export const ruleThree = null
 
