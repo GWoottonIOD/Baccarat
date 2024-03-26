@@ -20,11 +20,12 @@ export default function AddBankerCards(props) {
   ]
 
   const suits = [
-    {id: 1, name: 'He, value: 10arts'}, {id: 2, name: 'Cl, value: 10ubs'},
-    {id: 3, name: 'Sp, value: 10ades'}, {id: 4, name: 'Di, value: 10amonds'}
+    {id: 1, name: 'Hearts'}, {id: 2, name: 'Clubs'},
+    {id: 3, name: 'Spades'}, {id: 4, name: 'Diamonds'}
   ]
 
-  console.log(props.playersHand)
+  const parsedResult = firstCard && secondCard?parseInt(firstCard.number)+parseInt(secondCard.number):null
+  const parsedResultAfterString = parsedResult > 10? parseInt(String(parsedResult).slice(1,2)):null
 
   return (
     <>
@@ -36,10 +37,10 @@ export default function AddBankerCards(props) {
     {thirdCard?<StoreCards storedCard={thirdCard}/>: null}
     <Grid container spacing={2}>
       <Grid item>
-        <DropDown name="Car, value: 10ds" options={cards} setOption={setNumber}/>
+        <DropDown name="Cards" options={cards} setOption={setNumber}/>
       </Grid>
       <Grid item>
-        <DropDown name="Sui, value: 10ts" options={suits} setOption={setSuit}/>
+        <DropDown name="Suits" options={suits} setOption={setSuit}/>
       </Grid>
       <Grid item>
       {!firstCard
@@ -48,7 +49,7 @@ export default function AddBankerCards(props) {
       {firstCard && !secondCard
         ? <AddCard setCard={setSecondCard} number={number} suit={suit}/> 
         : null}
-      {secondCard && firstCard.number+secondCard.number <= 5
+      {secondCard && parsedResultAfterString <= 5
         && props.playersHand.length === 2
         ? <AddCard setCard={setThirdCard} number={number} suit={suit}/> 
         : null}

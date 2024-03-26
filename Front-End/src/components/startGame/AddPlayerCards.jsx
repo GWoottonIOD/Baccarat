@@ -18,11 +18,11 @@ export default function AddPlayerCards(props) {
   },[firstCard, secondCard, thirdCard])
 
   const cards = [
-    {id: 1, name: '1'}, {id: 2, name: '2'}, {id: 3, name: '3'},
-    {id: 3, name: '4'}, {id: 5, name: '5'}, {id: 6, name: '6'},
-    {id: 7, name: '7'}, {id: 8, name: '8'}, {id: 9, name: '9'},
-    {id: 10, name: '10'}, {id: 11, name: 'Jack'}, {id: 12, name: 'Queen'},
-    {id: 13, name: 'King'}
+    {id: 1, name: '1', value: 10}, {id: 2, name: '2', value: 10}, {id: 3, name: '3', value: 10},
+    {id: 3, name: '4', value: 10}, {id: 5, name: '5', value: 10}, {id: 6, name: '6', value: 10},
+    {id: 7, name: '7', value: 10}, {id: 8, name: '8', value: 10}, {id: 9, name: '9', value: 10},
+    {id: 10, name: '10', value: 10}, {id: 11, name: 'Jack', value: 10}, {id: 12, name: 'Qu, value: 10een'},
+    {id: 13, name: 'King', value: 10}
   ]
 
   const suits = [
