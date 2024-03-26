@@ -1,30 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { CurrentUserHolder } from '../context/CurrentUserContext';
-import { PageTypeHolder } from '../context/PageTypeContext';
-import { DebtContextHolder } from '../context/DebtContext';
+import { SecondCardHolder } from './SecondCardContext';
 import { SearchHolder } from '../context/SearchContext';
 import { UserContextHolder } from '../context/UserContext';
-import { VariableHolder } from '../context/VariableContext';
+import { ThirdCardHolder } from './ThirdCardContext';
 import AppRoutes from '../routes/AppRoutes';
 import Navbar from '../NavBar';
 import Footer from '../Footer';
+import { FirstCardHolder } from './FirstCardContext';
 
 export default function AppContext() {
     return (
       <CurrentUserHolder>
-        <PageTypeHolder>
-          <DebtContextHolder>
+        <SecondCardHolder>
+          <FirstCardHolder>
             <SearchHolder>
               <UserContextHolder>
-                <VariableHolder>
+                <ThirdCardHolder>
                     <Navbar />
                     <AppRoutes />
                     <Footer/>
-                </VariableHolder>
+                </ThirdCardHolder>
               </UserContextHolder>
             </SearchHolder>
-          </DebtContextHolder>
-        </PageTypeHolder>
+          </FirstCardHolder>
+        </SecondCardHolder>
       </CurrentUserHolder>
   )
 }

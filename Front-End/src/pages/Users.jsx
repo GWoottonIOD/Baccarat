@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button,CssBaseline, Box, Typography, 
   Container, Link } from '@mui/material';
 import { useEffect, useState, useContext, useReducer } from 'react';
-import { PageTypeContext } from '../context/PageTypeContext'
+// import { PageTypeContext } from '../context/SecondCardContext'
 import { SearchContext } from '../context/SearchContext'
 import { useNavigate } from "react-router-dom";
 import UserComponent from '../components/users/UserComponent';
@@ -12,7 +12,7 @@ import { useCurrentUserContext } from '../context/CurrentUserContext';
 
 export default function debtHome() {
   const { currentUser } = useCurrentUserContext()
-  const { pageType, setPageType } = useContext(PageTypeContext);
+  // const { pageType, setPageType } = useContext(PageTypeContext);
   const { users, setUsers } = useContext(UsersContext);
   const { query } = useContext(SearchContext);
   // const debtsPerPage = 6;

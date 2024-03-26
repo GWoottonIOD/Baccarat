@@ -1,12 +1,12 @@
 import { React, useContext } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { AppBar, Toolbar, Typography } from '@mui/material'
-import { PageTypeContext } from './context/PageTypeContext';
+// import { PageTypeContext } from './context/SecondCardContext';
 import { useCurrentUserContext } from './context/CurrentUserContext';
 
 const Navbar = () => {
   const { currentUser } = useCurrentUserContext()
-  const {pageType} = useContext(PageTypeContext)
+  // const {pageType} = useContext(PageTypeContext)
   const location = useLocation();
   const gameHistory = <NavLink id="link" to='/gameHistory' exact="true" forcerefresh="true">Game History</NavLink>
   const startGame = <NavLink id="link" to='/startGame' exact="true" forcerefresh="true">Start Game</NavLink>
