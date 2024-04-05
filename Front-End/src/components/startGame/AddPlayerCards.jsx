@@ -5,6 +5,8 @@ import StoreCards from './StoreCards';
 import AddCard from './AddCard';
 import { ruleOne } from '../../axios/rules/Rules';
 import { usePlayerHandContext } from '../../context/PlayerHandContext';
+import RemoveCard from './RemoveCard';
+import CardWithButton from './CardWithButton';
 
 export default function AddPlayerCards() {
   const {firstCard, setFirstCard, secondCard, setSecondCard,
@@ -32,16 +34,30 @@ export default function AddPlayerCards() {
     {id: 3, name: 'Spades'}, {id: 4, name: 'Diamonds'}
   ]
 
-  // console.log(firstCard.number+secondCard.number <= 5)
-
   return (
     <>
     <Typography>
       Players Cards
     </Typography>
-    {firstCard?<StoreCards storedCard={firstCard}/>: null}
-    {secondCard?<StoreCards storedCard={secondCard}/>: null}
-    {thirdCard?<StoreCards storedCard={thirdCard}/>: null}
+    {firstCard
+      ?<>
+        <StoreCards storedCard={firstCard}/>
+        <RemoveCard setCard={setFirstCard}/>
+        </>
+      : null}
+    {secondCard
+      ?<>
+        <StoreCards storedCard={secondCard}/>
+        <RemoveCard setCard={setSecondCard}/>
+      </>
+      : null}
+    {thirdCard
+      ?<>
+        <StoreCards storedCard={thirdCard}/>
+        <RemoveCard setCard={setThirdCard}/>
+      </>
+      : null}
+      {/* <CardWithButton hand={playersHand}/> */}
     <Grid container spacing={2}>
       <Grid item>
         <DropDown name="Cards" options={cards} setOption={setNumber}/>

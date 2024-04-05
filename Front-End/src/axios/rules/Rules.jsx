@@ -7,12 +7,9 @@ export const ruleOne = (firstCard, secondCard) => {
 }  
 
 export const ruleTwo = (firstCard, secondCard, playersHand) => {
-    console.log(firstCard, secondCard, playersHand)
-    // const parsedResult = firstCard && secondCard?parseInt(firstCard.number)+parseInt(secondCard.number):null
-    // const parsedResultAfterString = parsedResult > 10? parseInt(String(parsedResult).slice(1,2)):null
-    // if (secondCard && playersHand && parsedResultAfterString === 10) {
-    //     return true
-    // }
+    if (playersHand?.length === 2 && ruleOne(firstCard, secondCard)) {
+        return true
+    }
 }
 
 export const ruleThree = null
