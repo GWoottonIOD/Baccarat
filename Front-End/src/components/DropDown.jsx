@@ -4,7 +4,7 @@ import { readQuery } from '../axios/AxiosFunctions';
 
 export default function DropDown(props) {
   useEffect(() => {
-    console.log('options',props.options)
+    // console.log('options',props.options)
   },[])
 
   const dropDownOptions = props.options.map((option) => ({

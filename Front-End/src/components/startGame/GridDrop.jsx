@@ -4,7 +4,7 @@ import DropDown from '../DropDown'
 
 export default function GridDrop(props) {
     const [option, setOption] = useState([]);
-    console.log(props.name)
+    // console.log(props.name)
   return (
     <Grid container spacing={2}>
     <br/>

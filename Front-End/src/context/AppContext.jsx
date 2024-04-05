@@ -1,30 +1,27 @@
 import React from 'react'
 import { CurrentUserHolder } from '../context/CurrentUserContext';
-import { SecondCardHolder } from './SecondCardContext';
+import { BankerHandHolder } from './BankerHandContext';
 import { SearchHolder } from '../context/SearchContext';
 import { UserContextHolder } from '../context/UserContext';
-import { ThirdCardHolder } from './ThirdCardContext';
 import AppRoutes from '../routes/AppRoutes';
 import Navbar from '../NavBar';
 import Footer from '../Footer';
-import { FirstCardHolder } from './FirstCardContext';
+import { PlayerHandHolder } from './PlayerHandContext';
 
 export default function AppContext() {
     return (
       <CurrentUserHolder>
-        <SecondCardHolder>
-          <FirstCardHolder>
+        <PlayerHandHolder>
+          <BankerHandHolder>
             <SearchHolder>
               <UserContextHolder>
-                <ThirdCardHolder>
-                    <Navbar />
-                    <AppRoutes />
-                    <Footer/>
-                </ThirdCardHolder>
+                <Navbar />
+                <AppRoutes />
+                <Footer/>
               </UserContextHolder>
             </SearchHolder>
-          </FirstCardHolder>
-        </SecondCardHolder>
+          </BankerHandHolder>
+        </PlayerHandHolder>
       </CurrentUserHolder>
   )
 }

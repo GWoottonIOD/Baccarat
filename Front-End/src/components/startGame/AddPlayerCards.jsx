@@ -3,11 +3,13 @@ import DropDown from '../DropDown'
 import { Grid, Typography } from '@mui/material'
 import StoreCards from './StoreCards';
 import AddCard from './AddCard';
+import { ruleOne } from '../../axios/rules/Rules';
+import { usePlayerHandContext } from '../../context/PlayerHandContext';
 
 export default function AddPlayerCards(props) {
-  const [firstCard, setFirstCard] = useState(null);
-  const [secondCard, setSecondCard] = useState(null);
-  const [thirdCard, setThirdCard] = useState(null);
+  const {firstCard, setFirstCard, secondCard, setSecondCard,
+    thirdCard, setThirdCard, playersHand, setPlayersHand} 
+    = usePlayerHandContext()
   const [number, setNumber] = useState([]);
   const [suit, setSuit] = useState([]);
 
@@ -54,7 +56,7 @@ export default function AddPlayerCards(props) {
       {firstCard && !secondCard
         ? <AddCard setCard={setSecondCard} number={number} suit={suit}/> 
         : null}
-      {secondCard && firstCard.number+secondCard.number <= 5
+      {ruleOne(firstCard, secondCard)
         ? <AddCard setCard={setThirdCard} number={number} suit={suit}/> 
         : null}
       </Grid>

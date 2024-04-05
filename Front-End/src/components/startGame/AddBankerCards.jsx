@@ -3,15 +3,13 @@ import DropDown from '../DropDown'
 import { Grid, Typography } from '@mui/material'
 import StoreCards from './StoreCards';
 import AddCard from './AddCard';
-import { useFirstCardContext } from '../../context/FirstCardContext';
-import { useSecondCardContext } from '../../context/SecondCardContext';
-import { useThirdCardContext } from '../../context/ThirdCardContext';
-import { ruleOne } from '../Rules/Rules';
+import { ruleOne } from '../../axios/rules/Rules';
+import { useBankerHandContext } from '../../context/BankerHandContext';
 
 export default function AddBankerCards(props) {
-  const {firstCard, setFirstCard} = useFirstCardContext()
-  const {secondCard, setSecondCard} = useSecondCardContext()
-  const {thirdCard, setThirdCard} = useThirdCardContext()
+  const {firstCard, setFirstCard, secondCard, setSecondCard,
+    thirdCard, setThirdCard, bankersHand, setBankersHand} 
+    = useBankerHandContext()
   const [number, setNumber] = useState([]);
   const [suit, setSuit] = useState([]);
 
@@ -27,9 +25,6 @@ export default function AddBankerCards(props) {
     {id: 1, name: 'Hearts'}, {id: 2, name: 'Clubs'},
     {id: 3, name: 'Spades'}, {id: 4, name: 'Diamonds'}
   ]
-
-  // const parsedResult = firstCard && secondCard?parseInt(firstCard.number)+parseInt(secondCard.number):null
-  // const parsedResultAfterString = parsedResult > 10? parseInt(String(parsedResult).slice(1,2)):null
 
   return (
     <>
