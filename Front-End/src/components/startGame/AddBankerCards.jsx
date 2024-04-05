@@ -1,17 +1,25 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import DropDown from '../DropDown'
 import { Grid, Typography } from '@mui/material'
 import StoreCards from './StoreCards';
 import AddCard from './AddCard';
-import { ruleOne } from '../../axios/rules/Rules';
+import { ruleTwo } from '../../axios/rules/Rules';
 import { useBankerHandContext } from '../../context/BankerHandContext';
+import { usePlayerHandContext } from '../../context/PlayerHandContext';
 
-export default function AddBankerCards(props) {
+export default function AddBankerCards() {
   const {firstCard, setFirstCard, secondCard, setSecondCard,
-    thirdCard, setThirdCard, bankersHand, setBankersHand} 
+    thirdCard, setThirdCard, setBankersHand} 
     = useBankerHandContext()
+  const { playersHand } = usePlayerHandContext()
   const [number, setNumber] = useState([]);
   const [suit, setSuit] = useState([]);
+
+  useEffect(() => {
+    !thirdCard
+      ? setBankersHand([firstCard, secondCard]) 
+      : setBankersHand([firstCard, secondCard, thirdCard])
+  },[firstCard, secondCard, thirdCard])
 
   const cards = [
     {id: 1, name: '1', value: 10}, {id: 2, name: '2', value: 10}, {id: 3, name: '3', value: 10},
@@ -48,7 +56,7 @@ export default function AddBankerCards(props) {
       {firstCard && !secondCard
         ? <AddCard setCard={setSecondCard} number={number} suit={suit}/> 
         : null}
-      {ruleOne(firstCard, secondCard)
+      {ruleTwo(firstCard, secondCard, playersHand)
         // && props.playersHand.length === 2
         ? <AddCard setCard={setThirdCard} number={number} suit={suit}/> 
         : null}

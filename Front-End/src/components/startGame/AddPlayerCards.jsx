@@ -6,7 +6,7 @@ import AddCard from './AddCard';
 import { ruleOne } from '../../axios/rules/Rules';
 import { usePlayerHandContext } from '../../context/PlayerHandContext';
 
-export default function AddPlayerCards(props) {
+export default function AddPlayerCards() {
   const {firstCard, setFirstCard, secondCard, setSecondCard,
     thirdCard, setThirdCard, playersHand, setPlayersHand} 
     = usePlayerHandContext()
@@ -15,8 +15,8 @@ export default function AddPlayerCards(props) {
 
   useEffect(() => {
     !thirdCard
-      ? props.setPlayersHand([firstCard, secondCard]) 
-      : props.setPlayersHand([firstCard, secondCard, thirdCard])
+      ? setPlayersHand([firstCard, secondCard]) 
+      : setPlayersHand([firstCard, secondCard, thirdCard])
   },[firstCard, secondCard, thirdCard])
 
   const cards = [
