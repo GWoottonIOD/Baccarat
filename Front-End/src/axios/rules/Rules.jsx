@@ -50,4 +50,11 @@ export const ruleSix = (firstCard, secondCard, playersHand) => {
     }
 }
 
-export const ruleSeven = null
+export const ruleSeven = (firstCard, secondCard, playersHand) => {
+    const parsedResultAfterString = parseResults(firstCard, secondCard)
+    const drawIf = [6,7]
+    if (drawIf.includes(parseInt(playersHand[2].number))
+        && parsedResultAfterString === 6) {
+        return true
+    }
+}
