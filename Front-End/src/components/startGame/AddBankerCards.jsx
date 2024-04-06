@@ -3,7 +3,7 @@ import DropDown from '../DropDown'
 import { Grid, Typography } from '@mui/material'
 import StoreCards from './StoreCards';
 import AddCard from './AddCard';
-import { ruleThree, ruleTwo } from '../../axios/rules/Rules';
+import { ruleTwo, ruleThree, ruleFour, ruleFive } from '../../axios/rules/Rules';
 import { useBankerHandContext } from '../../context/BankerHandContext';
 import { usePlayerHandContext } from '../../context/PlayerHandContext';
 
@@ -57,7 +57,9 @@ export default function AddBankerCards() {
         ? <AddCard setCard={setSecondCard} number={number} suit={suit}/> 
         : null}
       {ruleTwo(firstCard, secondCard, playersHand)
-        || ruleThree(firstCard, secondCard)
+        || ruleThree(firstCard, secondCard) 
+        || ruleFour(firstCard, secondCard, playersHand)
+        || ruleFive(firstCard, secondCard, playersHand)
         ? <AddCard setCard={setThirdCard} number={number} suit={suit}/> 
         : null}
       </Grid>

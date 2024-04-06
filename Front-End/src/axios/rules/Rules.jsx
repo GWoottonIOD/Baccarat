@@ -25,9 +25,21 @@ export const ruleThree = (firstCard, secondCard) => {
     }
 }
 
-export const ruleFour = null
+export const ruleFour = (firstCard, secondCard, playersHand) => {
+    const parsedResultAfterString = parseResults(firstCard, secondCard)
+    if (parseInt(playersHand[2].number) !== 8 && parsedResultAfterString === 3) {
+        return true
+    }
+}
 
-export const ruleFive = null
+export const ruleFive = (firstCard, secondCard, playersHand) => {
+    const parsedResultAfterString = parseResults(firstCard, secondCard)
+    const drawIf = [2,3,4,5,6,7]
+    if (drawIf.includes(parseInt(playersHand[2].number))
+        && parsedResultAfterString === 4) {
+        return true
+    }
+}
 
 export const ruleSix = null
 
