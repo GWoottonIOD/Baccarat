@@ -13,7 +13,6 @@ export default function Results() {
     });
 
     useEffect(() => {
-        console.log(playersHand.length)
         if (playersHand[1] !== null || bankersHand[1] !== null) {
             setResult({
                 player: parseResults(playersHand[0], playersHand[1], playersHand[2]),
@@ -25,9 +24,9 @@ export default function Results() {
   return (
     <>
         <Typography>
-            Results <br />
+            Results: <br />
             Player: {result?.player}<br />
-            Banker: {result?.banker}
+            Banker: {result?.banker}<br />
             {result?.player > result?.banker ? ' Player Wins' : ' Banker Wins'}
         </Typography>
     </>

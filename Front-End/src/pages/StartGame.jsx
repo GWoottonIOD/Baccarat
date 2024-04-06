@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box } from '@mui/material'
-import GridDrop from '../components/startGame/GridDrop';
 import AddPlayerCards from '../components/startGame/AddPlayerCards';
 import AddBankerCards from '../components/startGame/AddBankerCards';
 import Results from '../components/startGame/Results';
+import GridMap from '../components/startGame/GridMap';
 
 export default function StartGame() {
 
@@ -24,11 +24,10 @@ export default function StartGame() {
                 }}
             >
             <form>
-                <GridDrop name="Bet Style" iterations={[1,2,3]} options={betStyle}/><br />
+                <GridMap name="Bet Style" iterations={[1,2,3]} options={betStyle}/><br />
                 <AddPlayerCards/><br />
                 <AddBankerCards/><br />
                 <Results/>
-                {/* {user?<Inputs user={user} userId={userId}/>: null} */}
             </form>
             </Box>
         </div>

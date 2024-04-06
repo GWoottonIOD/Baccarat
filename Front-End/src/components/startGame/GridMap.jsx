@@ -2,15 +2,14 @@ import React, { useState } from 'react'
 import { Grid } from '@mui/material'
 import DropDown from '../DropDown'
 
-export default function GridDrop(props) {
+export default function GridMap(props) {
     const [option, setOption] = useState([]);
-    // console.log(props.name)
   return (
     <Grid container spacing={2}>
     <br/>
     {/* {props.iterations.map(element => {
       <Grid item>
-        <DropDown name={props.name} options={props.options} setOption={setOption}/>
+        {props.component}
       </Grid>
     })} */}
     <Grid item>

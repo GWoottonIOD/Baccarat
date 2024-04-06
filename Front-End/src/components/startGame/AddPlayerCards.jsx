@@ -26,25 +26,9 @@ export default function AddPlayerCards() {
     <Typography>
       Players Cards
     </Typography>
-    {firstCard
-      ?<>
-        <StoreCards storedCard={firstCard}/>
-        <RemoveCard setCard={setFirstCard}/>
-        </>
-      : null}
-    {secondCard
-      ?<>
-        <StoreCards storedCard={secondCard}/>
-        <RemoveCard setCard={setSecondCard}/>
-      </>
-      : null}
-    {thirdCard
-      ?<>
-        <StoreCards storedCard={thirdCard}/>
-        <RemoveCard setCard={setThirdCard}/>
-      </>
-      : null}
-      {/* <CardWithButton hand={playersHand}/> */}
+      <CardWithButton firstCard={firstCard} secondCard={secondCard}
+       thirdCard={thirdCard} setFirstCard={setFirstCard} 
+       setSecondCard={setSecondCard} setThirdCard={setThirdCard}/>
     <Grid container spacing={2}>
       <Grid item>
         <DropDown name="Cards" options={cards} setOption={setNumber}/>

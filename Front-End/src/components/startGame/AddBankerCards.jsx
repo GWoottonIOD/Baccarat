@@ -7,6 +7,7 @@ import { ruleTwo, ruleThree, ruleFour, ruleFive,
   ruleSix, ruleSeven, cards, suits } from '../../axios/rules/Rules';
 import { useBankerHandContext } from '../../context/BankerHandContext';
 import { usePlayerHandContext } from '../../context/PlayerHandContext';
+import CardWithButton from './CardWithButton';
 
 export default function AddBankerCards() {
   const {firstCard, setFirstCard, secondCard, setSecondCard,
@@ -27,9 +28,9 @@ export default function AddBankerCards() {
     <Typography>
       Bankers Cards
     </Typography>
-    {firstCard?<StoreCards storedCard={firstCard}/>: null}
-    {secondCard?<StoreCards storedCard={secondCard}/>: null}
-    {thirdCard?<StoreCards storedCard={thirdCard}/>: null}
+    <CardWithButton firstCard={firstCard} secondCard={secondCard}
+       thirdCard={thirdCard} setFirstCard={setFirstCard} 
+       setSecondCard={setSecondCard} setThirdCard={setThirdCard}/>
     <Grid container spacing={2}>
       <Grid item>
         <DropDown name="Cards" options={cards} setOption={setNumber}/>
