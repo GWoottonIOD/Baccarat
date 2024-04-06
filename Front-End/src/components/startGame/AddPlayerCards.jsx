@@ -73,7 +73,7 @@ export default function AddPlayerCards() {
         ? <AddCard setCard={setSecondCard} number={number} suit={suit}/> 
         : null}
       {ruleOne(firstCard, secondCard)
-        ? <AddCard setCard={setThirdCard} number={number} suit={suit}/> 
+        ? thirdCard?null:<AddCard setCard={setThirdCard} number={number} suit={suit}/> 
         : null}
       </Grid>
     </Grid>
