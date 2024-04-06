@@ -7,7 +7,7 @@ export default function AddCard(props) {
     <>
         <Button variant="outlined" onClick={
           () => props.setCard(
-            {number: props.number, suit: props.suit}
+            {number: parseInt(props.number), suit: props.suit}
             )}>
           <AddIcon/>
         </Button>
