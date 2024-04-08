@@ -1,17 +1,21 @@
-import React from 'react'
-import { Box } from '@mui/material'
+import React, { useState } from 'react'
+import { Box, Container } from '@mui/material'
 import AddPlayerCards from '../components/startGame/AddPlayerCards';
 import AddBankerCards from '../components/startGame/AddBankerCards';
 import Results from '../components/startGame/Results';
 import GridMap from '../components/startGame/GridMap';
+import DropDown from '../components/DropDown';
 
 export default function StartGame() {
-
-    const betStyle = [{id: 1, name: 'bet style 1'}, {id: 2, name: 'bet style 2'}, {id: 3, name: 'bet style 3'}]
+    const [option, setOption] = useState([]);
+    const betStyle = [{ id: 1, name: 'Single Bet' }, { id: 2, name: 'Single Chase' }, { id: 3, name: 'Multi Single Chase' }]
+    const arr = [<DropDown name="Bet Style" options={option} setOption={setOption} />,
+    <DropDown name="Variations" options={option} setOption={setOption} />,
+        // <DropDown name="Variations" options={option} setOption={setOption}/>
+    ]
 
     return (
-
-        <div className="plantInfo">
+        <Container sx={{ py: 8 }} maxWidth="md">
             <Box
                 sx={{
                     bgcolor: 'background.paper',
@@ -23,13 +27,13 @@ export default function StartGame() {
                     justifyContent: 'center'
                 }}
             >
-            <form>
-                <GridMap name="Bet Style" iterations={[1,2,3]} options={betStyle}/><br />
-                <AddPlayerCards/><br />
-                <AddBankerCards/><br />
-                <Results/>
-            </form>
+                <form>
+                    <GridMap iterations={arr} options={betStyle} /><br />
+                    <AddPlayerCards /><br />
+                    <AddBankerCards /><br />
+                    <Results />
+                </form>
             </Box>
-        </div>
+        </Container>
     )
 }

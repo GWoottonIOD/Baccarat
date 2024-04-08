@@ -7,6 +7,7 @@ import { ruleOne, cards, suits } from '../../axios/rules/Rules';
 import { usePlayerHandContext } from '../../context/PlayerHandContext';
 import RemoveCard from './RemoveCard';
 import CardWithButton from './CardWithButton';
+import GridMap from './GridMap';
 
 export default function AddPlayerCards() {
   const {firstCard, setFirstCard, secondCard, setSecondCard,
@@ -21,6 +22,18 @@ export default function AddPlayerCards() {
       : setPlayersHand([firstCard, secondCard, thirdCard])
   },[firstCard, secondCard, thirdCard])
 
+  const arr = [<DropDown name="Cards" options={cards} setOption={setNumber}/>,
+    <DropDown name="Suits" options={suits} setOption={setSuit}/>,
+    !firstCard
+      ? <AddCard setCard={setFirstCard} number={number} suit={suit}/>
+      : null,
+    firstCard && !secondCard
+      ? <AddCard setCard={setSecondCard} number={number} suit={suit}/> 
+      : null,
+    ruleOne(firstCard, secondCard)
+      ? thirdCard?null:<AddCard setCard={setThirdCard} number={number} suit={suit}/> 
+      : null]
+
   return (
     <>
     <Typography>
@@ -29,25 +42,7 @@ export default function AddPlayerCards() {
       <CardWithButton firstCard={firstCard} secondCard={secondCard}
        thirdCard={thirdCard} setFirstCard={setFirstCard} 
        setSecondCard={setSecondCard} setThirdCard={setThirdCard}/>
-    <Grid container spacing={2}>
-      <Grid item>
-        <DropDown name="Cards" options={cards} setOption={setNumber}/>
-      </Grid>
-      <Grid item>
-        <DropDown name="Suits" options={suits} setOption={setSuit}/>
-      </Grid>
-      <Grid item>
-      {!firstCard
-        ? <AddCard setCard={setFirstCard} number={number} suit={suit}/>
-        : null}
-      {firstCard && !secondCard
-        ? <AddCard setCard={setSecondCard} number={number} suit={suit}/> 
-        : null}
-      {ruleOne(firstCard, secondCard)
-        ? thirdCard?null:<AddCard setCard={setThirdCard} number={number} suit={suit}/> 
-        : null}
-      </Grid>
-    </Grid>
+    <GridMap iterations={arr}/>
   </>
   )
 }

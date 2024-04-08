@@ -1,26 +1,15 @@
 import React, { useState } from 'react'
 import { Grid } from '@mui/material'
-import DropDown from '../DropDown'
 
 export default function GridMap(props) {
-    const [option, setOption] = useState([]);
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={5}>
     <br/>
-    {/* {props.iterations.map(element => {
-      <Grid item>
-        {props.component}
+    {props.iterations.map((element, index) => (
+      <Grid item key={index} lg={3}>
+          {element}
       </Grid>
-    })} */}
-    <Grid item>
-        <DropDown name="Bet Style" options={props.options} setOption={setOption}/>
-    </Grid>
-    <Grid item>
-        <DropDown name="Variations" options={option} setOption={setOption}/>
-    </Grid>
-    <Grid item>
-        <DropDown name="Variations" options={option} setOption={setOption}/>
-    </Grid>
+    ))}
     </Grid>
   )
 }
