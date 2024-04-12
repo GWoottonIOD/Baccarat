@@ -5,7 +5,6 @@ import { useHandContext } from '../../context/HandContext';
 
 export default function AddCard(props) {
   const { hand, setHand } = useHandContext()
-  console.log(hand.length)
   return (
     <>
       <Button variant="outlined" onClick={

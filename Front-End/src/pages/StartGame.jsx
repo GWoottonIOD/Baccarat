@@ -16,7 +16,6 @@ export default function StartGame() {
     const {hand, setHand} = useHandContext()
     const arr = [<DropDown name="Streak Length" options={streakLength} setOption={setOption} />,
     <DropDown name="Variations" options={option} setOption={setOption} />,
-        // <DropDown name="Variations" options={option} setOption={setOption}/>
     ]
 
     return (

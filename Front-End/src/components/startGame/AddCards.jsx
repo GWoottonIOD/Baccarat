@@ -8,6 +8,7 @@ import PaidComponent from '../transactions/PaidComponent';
 import PaidDeleteComponent from './PaidDeleteComponent';
 import DropDown from '../DropDown';
 import AddCard from './AddCard';
+import RemoveCard from './RemoveCard';
 
 export default function AddCards(props) {
     const [number, setNumber] = useState([]);
@@ -32,7 +33,9 @@ export default function AddCards(props) {
                             </CardContent>
                             <CardActions sx={{ marginTop: 'auto', justifyContent: 'center'}}>
                                 {/* <PaidDeleteComponent debt={card}/> */}
-                                {card?.number?null:<AddCard number={number} suit={suit}/>}
+                                {card?.number
+                                    ?<RemoveCard slot={index}/>
+                                    :<AddCard number={number} suit={suit}/>}
                             </CardActions>
                         </Card>
                     </Grid>
