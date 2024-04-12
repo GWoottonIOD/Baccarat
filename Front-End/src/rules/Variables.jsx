@@ -15,12 +15,50 @@ export const betStyle = [
     { id: 1, name: 'Single Bet' }, { id: 2, name: 'Single Chase' },
     { id: 3, name: 'Multi Single Chase' }, { id: 4, name: '2-Way Chasing' },
     { id: 5, name: '3-Way Chasing' }, { id: 6, name: 'X-Way Chasing' },
-    { id: 7, name: 'For 3 Against' }];
+    { id: 7, name: 'For 3 Against' }
+]
 
 export const streakLength = [
     { id: 1, length: '1' }, { id: 2, length: '2' },
     { id: 3, length: '3' }, { id: 4, length: '4' },
     { id: 5, length: '5' }, { id: 6, length: '6' },
     { id: 7, length: '7' }, { id: 8, length: '8' },
-    { id: 9, length: '9' }, { id: 10, length: '10' },
+    { id: 9, length: '9' }, { id: 10, length: '10' }
+]
+
+export const betSize = [
+    { id: 1, size: 0.5 }, { id: 2, size: 1 },
+    { id: 3, size: 5 }, { id: 4, size: 10 }
+]
+
+export const chaseLength = [
+    { id: 1, length: 1 }, { id: 2, length: 2 },
+    { id: 3, length: 3 }, { id: 4, length: 4 },
+    { id: 5, length: 5 }, { id: 6, length: 6 },
+    { id: 7, length: 7 }, { id: 8, length: 8 },
+    { id: 9, length: 9 }, { id: 10, length: 10 }
+]
+
+export const nunberOfPlayers = [
+    { id: 1, length: 1 }, { id: 2, length: 2 },
+    { id: 3, length: 3 }, { id: 4, length: 4 },
+    { id: 5, length: 5 }, { id: 6, length: 6 },
+    { id: 7, length: 7 }, { id: 8, length: 8 },
+    { id: 9, length: 9 }, { id: 10, length: 10 }
+]
+
+export const chaseDepth = [
+    { id: 1, length: 1 }, { id: 2, length: 2 },
+    { id: 3, length: 3 }, { id: 4, length: 4 },
+    { id: 5, length: 5 }, { id: 6, length: 6 },
+    { id: 7, length: 7 }, { id: 8, length: 8 },
+    { id: 9, length: 9 }, { id: 10, length: 10 }
+]
+
+export const chaseWidth = [
+    { id: 1, length: 1 }, { id: 2, length: 2 },
+    { id: 3, length: 3 }, { id: 4, length: 4 },
+    { id: 5, length: 5 }, { id: 6, length: 6 },
+    { id: 7, length: 7 }, { id: 8, length: 8 },
+    { id: 9, length: 9 }, { id: 10, length: 10 }
 ]

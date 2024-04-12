@@ -18,11 +18,11 @@ export default function AddCards(props) {
                 {props.hand.map((card, index) => (
                     <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
                         <Card
-                            sx={{ height: '100%', display: 'flex', flexDirection: 'column', width: 250 }}
+                            sx={{ height: '100%', display: 'flex', flexDirection: 'column', width: 225 }}
                         >
                             <CardContent sx={{ flexGrow: 2}}>
                                 <Typography gutterBottom variant="h5" component="h2" className='capitalise'>
-                                    {card?.player ? 'Player' : 'Banker'}
+                                    {index==0 || index == 2 ? 'Player' : 'Banker'}
                                 </Typography>
                                 {card?.number
                                     ? `${card.number} of ${card.suit}`

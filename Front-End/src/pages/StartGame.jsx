@@ -37,8 +37,6 @@ export default function StartGame() {
                     {option
                         ?<><GridMap iterations={arr} /><br /></>
                         :null}
-                    {/* <AddPlayerCards /><br />
-                    <AddBankerCards /><br /> */}
                     <br />
                     <AddCards hand={hand} setHand={setHand}/>
                     <br />
