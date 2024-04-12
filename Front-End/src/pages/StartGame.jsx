@@ -5,11 +5,16 @@ import AddBankerCards from '../components/startGame/AddBankerCards';
 import Results from '../components/startGame/Results';
 import GridMap from '../components/startGame/GridMap';
 import DropDown from '../components/DropDown';
+import { ruleOne } from '../rules/Rules';
+import { betStyle, streakLength } from '../rules/Variables';
+import { usePlayerHandContext } from '../context/PlayerHandContext';
+import AddCards from '../components/startGame/AddCards';
+import { useHandContext } from '../context/HandContext';
 
 export default function StartGame() {
-    const [option, setOption] = useState([]);
-    const betStyle = [{ id: 1, name: 'Single Bet' }, { id: 2, name: 'Single Chase' }, { id: 3, name: 'Multi Single Chase' }]
-    const arr = [<DropDown name="Bet Style" options={option} setOption={setOption} />,
+    const [option, setOption] = useState(null);
+    const {hand, setHand} = useHandContext()
+    const arr = [<DropDown name="Streak Length" options={streakLength} setOption={setOption} />,
     <DropDown name="Variations" options={option} setOption={setOption} />,
         // <DropDown name="Variations" options={option} setOption={setOption}/>
     ]
@@ -19,7 +24,7 @@ export default function StartGame() {
             <Box
                 sx={{
                     bgcolor: 'background.paper',
-                    pt: 15,
+                    pt: 5,
                     pb: 4,
                     display: 'flex',
                     flexDirection: 'column',
@@ -28,9 +33,15 @@ export default function StartGame() {
                 }}
             >
                 <form>
-                    <GridMap iterations={arr} options={betStyle} /><br />
-                    <AddPlayerCards /><br />
-                    <AddBankerCards /><br />
+                    <DropDown name="Bet Style" options={betStyle} setOption={setOption} />
+                    {option
+                        ?<><GridMap iterations={arr} /><br /></>
+                        :null}
+                    {/* <AddPlayerCards /><br />
+                    <AddBankerCards /><br /> */}
+                    <br />
+                    <AddCards hand={hand} setHand={setHand}/>
+                    <br />
                     <Results />
                 </form>
             </Box>

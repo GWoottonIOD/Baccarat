@@ -7,7 +7,7 @@ export default function RemoveCard(props) {
     <>
         <Button variant="outlined" onClick={
           () => props.setCard(
-            null
+            {number: null, suit: null}
             )}>
           <RemoveIcon/>
         </Button>

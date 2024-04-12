@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { usePlayerHandContext } from '../../context/PlayerHandContext';
 import { useBankerHandContext } from '../../context/BankerHandContext';
 import { Typography } from '@mui/material';
-import { parseResults } from '../../axios/rules/Rules';
+import { parseResults } from '../../rules/Rules';
 
 export default function Results() {
     const { playersHand } = usePlayerHandContext()

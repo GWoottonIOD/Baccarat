@@ -7,22 +7,35 @@ export default function CardWithButton(props) {
   const arr = [
   props.firstCard
     ? <>
-        <StoreCards storedCard={props.firstCard} />
-        <RemoveCard setCard={props.setFirstCard} />
+        {props.firstCard.number 
+        ? <>
+            <StoreCards storedCard={props.firstCard} />
+            <RemoveCard setCard={props.setFirstCard} />
+          </>
+        :null}
       </>
     : null,
   props.secondCard
   ? <>
-      <StoreCards storedCard={props.firstCard} />
-      <RemoveCard setCard={props.setFirstCard} />
-    </>
+        {props.secondCard.number 
+        ? <>
+            <StoreCards storedCard={props.secondCard} />
+            <RemoveCard setCard={props.setSecondCard} />
+          </>
+        :null}
+      </>
     : null,
   props.thirdCard
   ? <>
-      <StoreCards storedCard={props.thirdCard} />
-      <RemoveCard setCard={props.setThirdCard} />
-    </>
-    : null]
+        {props.thirdCard.number 
+        ? <>
+            <StoreCards storedCard={props.thirdCard} />
+            <RemoveCard setCard={props.setThirdCard} />
+          </>
+        :null}
+      </>
+    : null,
+  ]
   return (
     <>
       <GridMap iterations={arr}/>

@@ -7,19 +7,22 @@ import AppRoutes from '../routes/AppRoutes';
 import Navbar from '../NavBar';
 import Footer from '../Footer';
 import { PlayerHandHolder } from './PlayerHandContext';
+import { HandHolder } from './HandContext';
 
 export default function AppContext() {
     return (
       <CurrentUserHolder>
         <PlayerHandHolder>
           <BankerHandHolder>
-            <SearchHolder>
-              <UserContextHolder>
-                <Navbar />
-                <AppRoutes />
-                <Footer/>
-              </UserContextHolder>
-            </SearchHolder>
+            <HandHolder>
+              <SearchHolder>
+                <UserContextHolder>
+                  <Navbar />
+                  <AppRoutes />
+                  <Footer/>
+                </UserContextHolder>
+              </SearchHolder>
+            </HandHolder>
           </BankerHandHolder>
         </PlayerHandHolder>
       </CurrentUserHolder>
