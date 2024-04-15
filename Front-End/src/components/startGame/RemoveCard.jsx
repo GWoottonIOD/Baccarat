@@ -6,7 +6,7 @@ import { useHandContext } from '../../context/HandContext';
 export default function RemoveCard(props) {
   const { hand, setHand } = useHandContext()
   const findCardToRemove = hand[props.slot]
-  console.log(findCardToRemove)
+
   return (
     <>
       <Button variant="outlined"

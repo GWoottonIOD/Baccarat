@@ -5,19 +5,21 @@ import { useHandContext } from '../../context/HandContext';
 
 export default function AddCard(props) {
   const { hand, setHand } = useHandContext()
+
+
+  const newCard = {number: parseInt(props.number),
+  suit: props.suit,
+  player: 
+    props.player
+    }
   return (
     <>
       <Button variant="outlined" onClick={
-        () => setHand([{
-          number: parseInt(props.number),
-          suit: props.suit,
-          player: 
-            hand.length == 1 || hand.length == 3 
-              ? true 
-              : false
-            },
-          ...hand 
-        ])}>
+        () => setHand([
+            ...hand,
+            newCard 
+        ])
+    }>
         <AddIcon />
       </Button>
     </>

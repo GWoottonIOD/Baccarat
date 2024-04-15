@@ -17,7 +17,7 @@ export default function StartGame() {
     const arr = [<DropDown name="Streak Length" options={streakLength} setOption={setOption} />,
     <DropDown name="Variations" options={option} setOption={setOption} />,
     ]
-
+    
     return (
         <Container sx={{ py: 8 }} maxWidth="md">
             <Box

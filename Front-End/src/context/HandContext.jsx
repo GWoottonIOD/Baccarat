@@ -14,7 +14,7 @@ export const HandHolder = (props) => {
     const [fourthCard, setFourthCard] = useState(null)
     const [fifthCard, setFifthCard] = useState(null)
     const [sixthCard, setSixthCard] = useState(null)
-    const [hand, setHand] = useState([null]);
+    const [hand, setHand] = useState([]);
 
     return (
         // Providing the current user and handleUser function to the context object
