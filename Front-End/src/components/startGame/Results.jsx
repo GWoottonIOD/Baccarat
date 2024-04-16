@@ -16,19 +16,28 @@ export default function Results() {
     const calcBanker = parseResults(bankerOnly[0], bankerOnly[1], bankerOnly[2]? bankerOnly[2] : null)
 
     useEffect(() => {
-        setResult({
-            player: calcPlayer,
-            banker: calcBanker
-        });
+        hand.length >= 4
+            ?setResult({
+                player: calcPlayer,
+                banker: calcBanker
+            })
+            :null
     }, [hand]);
 
   return (
     <>
         <Typography>
             Results: <br />
-            Player: {result?.player}<br />
-            Banker: {result?.banker}<br />
-            {result?.player > result?.banker ? ' Player Wins' : ' Banker Wins'}
+            Player: {result.player}<br />
+            Banker: {result.banker}<br />
+            {hand.length >= 4
+                ?result.player === result.banker
+                    ? 'Tied'
+                    :result.player > result.banker 
+                        ? 'Player Wins' 
+                        : 'Banker Wins'
+                :null
+                }
         </Typography>
     </>
   )
