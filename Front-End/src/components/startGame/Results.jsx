@@ -1,25 +1,26 @@
 import React, {useState, useEffect} from 'react'
-import { usePlayerHandContext } from '../../context/PlayerHandContext';
-import { useBankerHandContext } from '../../context/BankerHandContext';
 import { Typography } from '@mui/material';
 import { parseResults } from '../../rules/Rules';
+import { useHandContext } from '../../context/HandContext';
 
 export default function Results() {
-    const { playersHand } = usePlayerHandContext()
-    const { bankersHand } = useBankerHandContext()
+    const { hand } = useHandContext()
+    const playerOnly = hand.filter((card) => card.player === 'Player')
+    const bankerOnly = hand.filter((card) => card.player === 'Banker')
     const [result, setResult] = useState({
         player: 0,
         banker: 0
     });
 
+    const calcPlayer = parseResults(playerOnly[0], playerOnly[1], playerOnly[2]? playerOnly[2] : null)
+    const calcBanker = parseResults(bankerOnly[0], bankerOnly[1], bankerOnly[2]? bankerOnly[2] : null)
+
     useEffect(() => {
-        if (playersHand[1] !== null || bankersHand[1] !== null) {
-            setResult({
-                player: parseResults(playersHand[0], playersHand[1], playersHand[2]),
-                banker: parseResults(bankersHand[0], bankersHand[1], bankersHand[2])
-            });
-        }
-    }, [playersHand, bankersHand]);
+        setResult({
+            player: calcPlayer,
+            banker: calcBanker
+        });
+    }, [hand]);
 
   return (
     <>

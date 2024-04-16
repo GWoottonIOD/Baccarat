@@ -1,6 +1,6 @@
 import React from 'react'
 import { CurrentUserHolder } from '../context/CurrentUserContext';
-import { BankerHandHolder } from './BankerHandContext';
+import { StreakHolder } from './StreakContext';
 import { SearchHolder } from '../context/SearchContext';
 import { UserContextHolder } from '../context/UserContext';
 import AppRoutes from '../routes/AppRoutes';
@@ -13,7 +13,7 @@ export default function AppContext() {
     return (
       <CurrentUserHolder>
         <PlayerHandHolder>
-          <BankerHandHolder>
+          <StreakHolder>
             <HandHolder>
               <SearchHolder>
                 <UserContextHolder>
@@ -23,7 +23,7 @@ export default function AppContext() {
                 </UserContextHolder>
               </SearchHolder>
             </HandHolder>
-          </BankerHandHolder>
+          </StreakHolder>
         </PlayerHandHolder>
       </CurrentUserHolder>
   )

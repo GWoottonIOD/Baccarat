@@ -37,8 +37,6 @@ export const ruleFour = (firstCard, secondCard, playersHand) => {
 export const ruleFive = (firstCard, secondCard, playersHand) => {
     const parsedResultAfterString = parseResults(firstCard, secondCard)
     const drawIf = [2,3,4,5,6,7]
-    console.log(drawIf.includes(parseInt(playersHand[2]?.number))
-    && parsedResultAfterString === 4)
     if (drawIf.includes(parseInt(playersHand[2]?.number))
         && parsedResultAfterString === 4) {
         return true

@@ -6,7 +6,6 @@ import { useHandContext } from '../../context/HandContext';
 export default function AddCard(props) {
   const { hand, setHand } = useHandContext()
 
-
   const newCard = {number: parseInt(props.number),
   suit: props.suit,
   player: 
