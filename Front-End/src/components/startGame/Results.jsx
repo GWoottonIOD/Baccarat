@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Typography } from '@mui/material';
 import { parseResults } from '../../rules/Rules';
 import { useHandContext } from '../../context/HandContext';
+import AddToStreak from './AddToStreak';
+import usePlayer from '../../hooks/usePlayer';
 
 export default function Results() {
     const { hand } = useHandContext()
+    const player = usePlayer()
     const playerOnly = hand.filter((card) => card.player === 'Player')
     const bankerOnly = hand.filter((card) => card.player === 'Banker')
     const [result, setResult] = useState({
@@ -12,33 +15,37 @@ export default function Results() {
         banker: 0
     });
 
-    const calcPlayer = parseResults(playerOnly[0], playerOnly[1], playerOnly[2]? playerOnly[2] : null)
-    const calcBanker = parseResults(bankerOnly[0], bankerOnly[1], bankerOnly[2]? bankerOnly[2] : null)
+    const calcPlayer = parseResults(playerOnly[0], playerOnly[1], playerOnly[2] ? playerOnly[2] : null)
+    const calcBanker = parseResults(bankerOnly[0], bankerOnly[1], bankerOnly[2] ? bankerOnly[2] : null)
 
     useEffect(() => {
         hand.length >= 4
-            ?setResult({
+            ? setResult({
                 player: calcPlayer,
                 banker: calcBanker
             })
-            :null
+            : null
     }, [hand]);
 
-  return (
-    <>
-        <Typography>
-            Results: <br />
-            Player: {result.player}<br />
-            Banker: {result.banker}<br />
-            {hand.length >= 4
-                ?result.player === result.banker
-                    ? 'Tied'
-                    :result.player > result.banker 
-                        ? 'Player Wins' 
-                        : 'Banker Wins'
-                :null
+    return (
+        <>
+            <Typography>
+                Results: <br />
+                Player: {result.player}<br />
+                Banker: {result.banker}<br />
+                {hand.length >= 4
+                    ? result.player === result.banker
+                        ? 'Tied'
+                        : result.player > result.banker
+                            ? 'Player Wins'
+                            : 'Banker Wins'
+                    : null
                 }
-        </Typography>
-    </>
-  )
+            </Typography>
+            {player
+                ? null
+                : <AddToStreak result={result} />
+            }
+        </>
+    )
 }

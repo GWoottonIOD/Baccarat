@@ -13,32 +13,14 @@ import {
     ruleOne, ruleTwo, ruleThree, ruleFour, 
     ruleFive, ruleSix, ruleSeven
   } from '../../rules/Rules';
+import usePlayer from '../../hooks/usePlayer';
 // import { player } from '../../rules/Rules';
 
 export default function AddCards(props) {
     const [number, setNumber] = useState([]);
     const [suit, setSuit] = useState([]);
-    const playerOnly = props.hand.filter((card) => card.player === 'Player')
+    const player = usePlayer()
 
-    const player = props.hand.length == 0 || props.hand.length == 2
-            ? 'Player'
-            : props.hand.length == 1 || props.hand.length == 3
-                ? 'Banker'
-                : ruleOne(props.hand[0], props.hand[2]) && props.hand.length == 4
-                    ? 'Player'
-                    : ruleTwo(props.hand[1], props.hand[3], playerOnly) && props.hand.length == 4 && props.hand.length < 5
-                        ? 'Banker'
-                        : ruleThree(props.hand[1], props.hand[3]) && props.hand.length >= 4 && props.hand.length < 6
-                            ? 'Banker'
-                            : ruleFour(props.hand[1], props.hand[3], playerOnly) && props.hand.length >= 4 && props.hand.length < 6
-                                ? 'Banker'
-                                : ruleFive(props.hand[1], props.hand[3], playerOnly) && props.hand.length >= 4 && props.hand.length < 6
-                                    ? 'Banker'
-                                    : ruleSix(props.hand[1], props.hand[3], playerOnly) && props.hand.length >= 4 && props.hand.length < 6
-                                        ? 'Banker'
-                                        : ruleSeven(props.hand[1], props.hand[3], playerOnly) && props.hand.length >= 4 && props.hand.length < 6
-                                            ? 'Banker'
-                                            : null
     return (
         <div>
             <Grid container spacing={4}>
