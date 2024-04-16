@@ -8,12 +8,22 @@ import usePlayer from '../../hooks/usePlayer';
 export default function Results() {
     const { hand } = useHandContext()
     const player = usePlayer()
+
     const playerOnly = hand.filter((card) => card.player === 'Player')
     const bankerOnly = hand.filter((card) => card.player === 'Banker')
+
     const [result, setResult] = useState({
         player: 0,
         banker: 0
     });
+
+    const winner = hand.length >= 4
+    ? result.player === result.banker
+        ? 'Tied'
+        : result.player > result.banker
+            ? 'Player Wins'
+            : 'Banker Wins'
+    : null
 
     const calcPlayer = parseResults(playerOnly[0], playerOnly[1], playerOnly[2] ? playerOnly[2] : null)
     const calcBanker = parseResults(bankerOnly[0], bankerOnly[1], bankerOnly[2] ? bankerOnly[2] : null)
@@ -24,7 +34,10 @@ export default function Results() {
                 player: calcPlayer,
                 banker: calcBanker
             })
-            : null
+            : setResult({
+                player: 0,
+                banker: 0
+            })
     }, [hand]);
 
     return (
@@ -44,7 +57,7 @@ export default function Results() {
             </Typography>
             {player
                 ? null
-                : <AddToStreak result={result} />
+                : <AddToStreak result={winner.slice(0,1)} />
             }
         </>
     )
