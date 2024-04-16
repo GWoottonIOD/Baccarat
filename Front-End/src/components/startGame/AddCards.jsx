@@ -9,6 +9,10 @@ import PaidDeleteComponent from './PaidDeleteComponent';
 import DropDown from '../DropDown';
 import AddCard from './AddCard';
 import RemoveCard from './RemoveCard';
+import {
+    ruleOne, ruleTwo, ruleThree, ruleFour, 
+    ruleFive, ruleSix, ruleSeven
+  } from '../../rules/Rules';
 // import { player } from '../../rules/Rules';
 
 export default function AddCards(props) {
@@ -22,13 +26,13 @@ export default function AddCards(props) {
                 ? 'Banker'
                 : ruleOne(props.hand[0], props.hand[2]) && props.hand.length == 4
                     ? 'Player'
-                    : ruleTwo(props.hand[1], props.hand[3], playerOnly) && props.hand.length == 4
+                    : ruleTwo(props.hand[1], props.hand[3], playerOnly) && props.hand.length == 4 && props.hand.length < 5
                         ? 'Banker'
                         : ruleThree(props.hand[1], props.hand[3]) && props.hand.length >= 4 && props.hand.length < 6
                             ? 'Banker'
                             : ruleFour(props.hand[1], props.hand[3], playerOnly) && props.hand.length >= 4 && props.hand.length < 6
                                 ? 'Banker'
-                                : ruleFive(props.hand[1], props.hand[3], playerOnly) && props.hand.length >= 4 && props.hand.length > 6
+                                : ruleFive(props.hand[1], props.hand[3], playerOnly) && props.hand.length >= 4 && props.hand.length < 6
                                     ? 'Banker'
                                     : ruleSix(props.hand[1], props.hand[3], playerOnly) && props.hand.length >= 4 && props.hand.length < 6
                                         ? 'Banker'
