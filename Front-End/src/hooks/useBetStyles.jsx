@@ -28,7 +28,6 @@ export default function useBetStyles() {
   const for3Against = [arr[0], arr[1], arr[2], arr[4], arr[5], arr[6]]
 
   const reducer = (state, action) => {
-    console.log(action)
     switch (action) {
       case 'Single Bet':
         return [singleBet, option] 
