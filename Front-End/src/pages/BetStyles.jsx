@@ -19,7 +19,6 @@ export default function BetStyles() {
             {logicalOption
                 ? <GridMap iterations={logicalOption[0]} />
                 : null}
-            <br />
         </>
     )
 }
