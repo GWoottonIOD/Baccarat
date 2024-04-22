@@ -9,19 +9,26 @@ export default function ShowStreak() {
   useEffect(() => {
     let streakType = ''; // 'P' for player, 'B' for banker, 'A' for alternating
     let streakLength = 1;
-    let maxStreak = 0;
-    let maxStreakType = '';
 
     for (let i = 1; i < streak.length; i++) {
       const current = streak[i];
       const prev = streak[i - 1];
       const prevPrev = streak[i - 2];
 
-      if (current === prev) {
-        if (current !== 'T') {
-          streakLength++;
-          streakType = current;
+      // if (prevPrev !== current) {
+      //   streakLength = 1;
+      // }
+       if (current === prev) {
+        if (prevPrev) {
+          if (prevPrev !== current) {
+            streakLength = 2
+            streakType = current;
+          }
         }
+        else if (current !== 'T') {
+            streakType = current;
+            streakLength++;
+      }
       }
       else if (streakType === current) {
         streakLength++;
@@ -30,13 +37,19 @@ export default function ShowStreak() {
         console.log('Ignoring the T')
       } 
       else if (current === 'P' && prev === 'B') {
-        if (prevPrev === 'B' || 'T')
+        if (prevPrev === 'B') {
+          streakLength = 1
+        }
         streakType = 'A';
-        // streakLength++;
+        streakLength++;
       }
-      // else if (current === 'P' && prev === 'B' && prevPrev !== 'B') {
-      //   streakLength++;
-      // }
+      else if (current === 'B' && prev === 'P') {
+        if (prevPrev === 'P') {
+          streakLength = 1
+        }
+        streakType = 'A';
+        streakLength++;
+      }
       else {
         // if (streakLength >= maxStreak) {
         //   maxStreak = streakLength;
