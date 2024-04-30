@@ -3,7 +3,7 @@ import { Button } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import { useHandContext } from '../../context/HandContext';
 
-export default function AddCard(props) {
+export default function AddButton(props) {
   const { hand, setHand } = useHandContext()
 
   const newCard = {number: parseInt(props.number),

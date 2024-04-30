@@ -10,12 +10,11 @@ export default function StartGame() {
     const {hand, setHand} = useHandContext()
 
     return (
-        <Container sx={{ py: 8 }} maxWidth="md">
+        <Container sx={{ py: 6 }} maxWidth="md">
             <Box
                 sx={{
                     bgcolor: 'background.paper',
                     pt: 5,
-                    pb: 4,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -26,8 +25,6 @@ export default function StartGame() {
                     <BetStyles/>
                     <ShowStreak/>
                     <AddCards hand={hand} setHand={setHand}/>
-                    <br />
-                    <Results />
                 </form>
             </Box>
         </Container>

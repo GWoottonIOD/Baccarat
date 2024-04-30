@@ -15,9 +15,6 @@ export default function ShowStreak() {
       const prev = streak[i - 1];
       const prevPrev = streak[i - 2];
 
-      // if (prevPrev !== current) {
-      //   streakLength = 1;
-      // }
        if (current === prev) {
         if (prevPrev) {
           if (prevPrev !== current) {
@@ -51,20 +48,11 @@ export default function ShowStreak() {
         streakLength++;
       }
       else {
-        // if (streakLength >= maxStreak) {
-        //   maxStreak = streakLength;
-        //   maxStreakType = streakType;
-        // }
+
         streakLength = 1; // Reset streak length for the new streak
       }
        // Update streak type for the next iteration
     }
-
-    // // Check for the last streak
-    // if (streakLength >= maxStreak) {
-    //   maxStreak = streakLength;
-    //   maxStreakType = streakType;
-    // }
 
     if (streakType === 'P' && streakLength > 1) {
       setStreakStatus(`Player's streak ${streakLength}`)
