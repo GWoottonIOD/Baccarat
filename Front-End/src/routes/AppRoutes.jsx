@@ -21,8 +21,6 @@ export default function AppRoutes() {
                 <Route path="/*" element={<Theme component={<PNF />} />}/>
                 <Route path='/login' element={<Theme component={<NewLogin />} />} />
                 <Route path='/startGame' element={<ProtectedRoute><Theme component={<StartGame />} /></ProtectedRoute>} />
-                <Route path='/users' element={<ProtectedRoute><Theme component={<Users />} /></ProtectedRoute>} />
-                <Route path='/newuser' element={<ProtectedRoute><Theme component={<NewUser />} /></ProtectedRoute>} />
                 <Route path='/userinfo' >
                     <Route path=':id' element={<ProtectedRoute><Theme component={<UserInfoEdit />} /></ProtectedRoute>} />
                 </Route>
