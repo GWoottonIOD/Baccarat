@@ -1,23 +1,24 @@
-import React, { useReducer, useState } from 'react'
+import React, { useReducer } from 'react'
 import DropDown from '../components/reuseables/DropDown';
-import {
-  betSize, chaseDepth, chaseLength, chaseWidth,
-  numberOfPlayers, streakLength
-} from '../rules/Variables';
+import { numberOfPlayers, chaseLength, chaseDepth,
+  chaseWidth, betSize, streakLength } from '../rules/Variables';
+import { BetStyleHolder } from '../context/BetStyleContext';
 
 export default function useBetStyles() {
-  const [option, setOption] = useState(null);
-
-  const initialState = null
+  const { setStreakLength, setBetSize,
+     setChaseLength, setNoOfPlayers,
+     setChaseDepth, setChaseWidth} = BetStyleHolder()
 
   const arr = [
-    <DropDown name="Streak Length" options={streakLength} setOption={setOption} />,
-    <DropDown name="Bet Size" options={betSize} setOption={setOption} />,
-    <DropDown name="Chase Length" options={chaseLength} setOption={setOption} />,
-    <DropDown name="Number of Players" options={numberOfPlayers} setOption={setOption} />,
-    <DropDown name="Chase Depth" options={chaseDepth} setOption={setOption} />,
-    <DropDown name="Chase Width" options={chaseWidth} setOption={setOption} />,
+    <DropDown name="Streak Length" options={streakLength} setOption={setStreakLength} />,
+    <DropDown name="Bet Size" options={betSize} setOption={setBetSize} />,
+    <DropDown name="Chase Length" options={chaseLength} setOption={setChaseLength} />,
+    <DropDown name="Number of Players" options={numberOfPlayers} setOption={setNoOfPlayers} />,
+    <DropDown name="Chase Depth" options={chaseDepth} setOption={setChaseDepth} />,
+    <DropDown name="Chase Width" options={chaseWidth} setOption={setChaseWidth} />,
   ]
+
+  const initialState = null
 
   const singleBet = [arr[0], arr[1]]
   const singleChase = [arr[0], arr[1], arr[2]]

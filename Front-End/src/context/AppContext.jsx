@@ -6,13 +6,13 @@ import { UserContextHolder } from '../context/UserContext';
 import AppRoutes from '../routes/AppRoutes';
 import Navbar from '../NavBar';
 import Footer from '../Footer';
-import { PlayerHandHolder } from './PlayerHandContext';
+import { BetStyleHolder } from './BetStyleContext';
 import { HandHolder } from './HandContext';
 
 export default function AppContext() {
     return (
       <CurrentUserHolder>
-        <PlayerHandHolder>
+        <BetStyleHolder>
           <StreakHolder>
             <HandHolder>
               <SearchHolder>
@@ -24,7 +24,7 @@ export default function AppContext() {
               </SearchHolder>
             </HandHolder>
           </StreakHolder>
-        </PlayerHandHolder>
+        </BetStyleHolder>
       </CurrentUserHolder>
   )
 }
