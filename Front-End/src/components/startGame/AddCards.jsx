@@ -1,8 +1,8 @@
 import React from 'react'
 import { Grid } from '@mui/material';
-import PlayerCards from './PlayerCards.jsx';
-import BankerCards from './BankerCards.jsx';
-import AddToHand from './AddToHand.jsx';
+import PlayerCards from './cardInfo/PlayerCards.jsx';
+import BankerCards from './cardInfo/BankerCards.jsx';
+import AddToHand from './enterCard/AddToHand.jsx';
 
 export default function AddCards(props) {
 

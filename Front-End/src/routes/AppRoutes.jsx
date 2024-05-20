@@ -1,6 +1,5 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Users from '../pages/Users';
 import Profile from '../pages/Profile';
 import PageNotAllowed from '../pages/PNA';
 import StartGame from '../pages/StartGame';
@@ -9,7 +8,6 @@ import PNF from '../pages/PNF';
 import Theme from '../theme/Theme';
 import { UserInfoEdit } from '../pages/UserInfoEdit';
 import ProtectedRoute from './ProtectedRoute';
-import { NewUser } from '../pages/UserNew';
 import GameHistory from '../pages/GameHistory';
 
 

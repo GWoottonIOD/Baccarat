@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Grid, Box, Container } from '@mui/material'
 
 export default function GridMap(props) {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
-import { cards, suits } from '../../rules/Variables';
-import DropDown from '../DropDown';
+import { cards, suits } from '../../../rules/Variables';
+import DropDown from '../../reuseables/DropDown';
 import AddButton from './AddButton';
-import usePlayer from '../../hooks/usePlayer';
-import Results from './Results';
+import usePlayer from '../../../hooks/usePlayer';
+import Results from '../Results';
 
 export default function AddToHand() {
     const [number, setNumber] = useState([]);

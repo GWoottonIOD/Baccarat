@@ -1,7 +1,6 @@
 import React from 'react';
 import { CssBaseline, Container, Typography } from '@mui/material';
-import BasicLineChart from '../components/Chart';
-import DropDown from '../components/DropDown';
+import BasicLineChart from '../components/gameHistory/Chart';
 import { useSearchContext } from '../context/SearchContext';
 
 export default function GameHistory() {
@@ -16,7 +15,6 @@ export default function GameHistory() {
             A list of played games
           </Typography>
           <br />
-          {/* <DropDown name="Bet Style" options={betStyle} setOption={setOption}/> */}
           <BasicLineChart/>
         </Container>
       </main>

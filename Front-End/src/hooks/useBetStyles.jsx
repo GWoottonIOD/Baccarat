@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react'
-import DropDown from '../components/DropDown';
+import DropDown from '../components/reuseables/DropDown';
 import {
   betSize, chaseDepth, chaseLength, chaseWidth,
   numberOfPlayers, streakLength

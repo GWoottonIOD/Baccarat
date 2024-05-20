@@ -33,7 +33,7 @@ export default function DraggableDialog(props) {
           id="draggable-dialog-title">
           Bet Style
         </DialogTitle>
-        <DialogContent style={{ margin: 'auto 0', textAlign: 'center' }}>
+        <DialogContent style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
             <br />
             <BetStyles/>
         </DialogContent>
