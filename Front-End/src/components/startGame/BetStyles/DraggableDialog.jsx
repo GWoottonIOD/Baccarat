@@ -41,9 +41,7 @@ export default function DraggableDialog(props) {
           <Button autoFocus onClick={handleClose} sx={{'&&:focus': {outline: 'none'}}}>
             Cancel
           </Button>
-          <Button onClick={() => {
-
-          }}
+          <Button onClick={handleClose}
             sx={{'&&:focus': {outline: 'none'}}}>
                 Submit
             </Button>

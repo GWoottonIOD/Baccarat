@@ -4,6 +4,7 @@ import AddCards from '../components/startGame/AddCards';
 import { useHandContext } from '../context/HandContext';
 import ShowStreak from '../components/startGame/ShowStreak';
 import BetStyleButton from '../components/startGame/BetStyles/BetStyleButton';
+import ReccomendedBet from '../components/startGame/ReccomendedBet';
 
 export default function StartGame() {
     const {hand, setHand} = useHandContext()
@@ -24,6 +25,7 @@ export default function StartGame() {
                     <BetStyleButton/>
                     <ShowStreak/>
                     <AddCards hand={hand} setHand={setHand}/>
+                    <ReccomendedBet/>
                 </form>
             </Box>
         </Container>

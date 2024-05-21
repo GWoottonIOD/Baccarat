@@ -14,13 +14,15 @@ export const BetStyleHolder = (props) => {
     const [noOfPlayers, setNoOfPlayers] = useState(null)
     const [chaseDepth, setChaseDepth] = useState(null)
     const [chaseWidth, setChaseWidth] = useState(null)
+    const [betStyle, setBetStyle] = useState(null)
 
     return (
         // Providing the current user and handleUser function to the context object
         <BetStyleContext.Provider value={{ 
             streakLength, setStreakLength, betSize, setBetSize,
             chaseLength, setChaseLength, noOfPlayers, setNoOfPlayers,
-            chaseDepth, setChaseDepth, chaseWidth, setChaseWidth
+            chaseDepth, setChaseDepth, chaseWidth, setChaseWidth,
+            betStyle, setBetStyle
             }}>
             {props.children}
         </BetStyleContext.Provider>

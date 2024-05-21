@@ -29,7 +29,7 @@ export default function BetStyles() {
                 </Box>
                 <br />
                 {logicalOption
-                    ? <GridMap iterations={logicalOption[0]} />
+                    ? <GridMap iterations={logicalOption} />
                     : null}
             </Container>
         </>

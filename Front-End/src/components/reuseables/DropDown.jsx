@@ -21,6 +21,7 @@ export default function DropDown(props) {
           props.setOption(selectedOption.label);
         }}
         options={dropDownOptions}
+        isOptionEqualToValue={(option, value) => option.value === value.value}
         getOptionLabel={(option) => option.label}
         sx={{ width: 195, margin: '0 auto', textAlign: 'center' }}
         renderInput={(params) => <TextField {...params} sx={{ textAlign: 'center' }}  label={props.name} />}

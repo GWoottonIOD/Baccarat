@@ -2,12 +2,12 @@ import React, { useReducer } from 'react'
 import DropDown from '../components/reuseables/DropDown';
 import { numberOfPlayers, chaseLength, chaseDepth,
   chaseWidth, betSize, streakLength } from '../rules/Variables';
-import { BetStyleHolder } from '../context/BetStyleContext';
+import { useBetStyleContext } from '../context/BetStyleContext';
 
 export default function useBetStyles() {
-  const { setStreakLength, setBetSize,
-     setChaseLength, setNoOfPlayers,
-     setChaseDepth, setChaseWidth} = BetStyleHolder()
+  const { setStreakLength, setBetSize, setChaseLength,
+    setNoOfPlayers, setChaseDepth, setChaseWidth,
+    setBetStyle} = useBetStyleContext()
 
   const arr = [
     <DropDown name="Streak Length" options={streakLength} setOption={setStreakLength} />,
@@ -29,21 +29,22 @@ export default function useBetStyles() {
   const for3Against = [arr[0], arr[1], arr[2], arr[4], arr[5], arr[6]]
 
   const reducer = (state, action) => {
+    setBetStyle(action)
     switch (action) {
       case 'Single Bet':
-        return [singleBet, option] 
+        return singleBet 
       case 'Single Chase':
-        return [singleChase, option]
+        return singleChase
       case 'Multi Single Chase':
-        return [multiSingleChase, option]
+        return multiSingleChase
       case '2-Way Chasing':
-        return [twoWayChasing, option]
+        return twoWayChasing
       case '3-Way Chasing':
-        return [threeWayChasing, option]
+        return threeWayChasing
       case 'Multi X-Way Chasing':
-        return [multiXWayChasing, option]
+        return multiXWayChasing
       case 'For 3 Against':
-        return [for3Against, option]
+        return for3Against
       default:
         return state
     }
