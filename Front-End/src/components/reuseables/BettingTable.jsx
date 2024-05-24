@@ -9,9 +9,9 @@ export default function BettingTable() {
         chaseDepth, chaseWidth, betStyle} = useBetStyleContext()
 
     useEffect(() => {
-        const chaseTimesWidth = parseInt(chaseLength) * parseInt(chaseWidth)
+        const chaseTimesWidth = chaseLength * chaseWidth
         const percentage = chaseTimesWidth / 100
-        const depthTimesBet = parseInt(chaseDepth) * parseFloat(betSize)
+        const depthTimesBet = chaseDepth * parseFloat(betSize)
         const depthTimesBetPercentage = depthTimesBet * percentage
         let tempColumns = [{
             field: 'streakLength',
@@ -19,20 +19,20 @@ export default function BettingTable() {
             width: 160
         }]
         let tempRows = []
-        for (let i = 0; i < parseInt(chaseWidth); i++) {
+        for (let i = 0; i < chaseWidth; i++) {
             tempColumns.push({
                 field: (i + 10).toString(36).toUpperCase(),
                 headerName: (i + 10).toString(36).toUpperCase(),
                 width: 80
             })
         }
-        for (let i = streakLength? parseInt(streakLength) : 2; i < parseInt(chaseLength) + 1; i++) {
+        for (let i = streakLength? streakLength : 2; i < chaseLength + streakLength + 1; i++) {
             let row = {
                 id: i,
                 streakLength: i,
             }
 
-            for (let j = 0; j < parseInt(chaseWidth); j++) {
+            for (let j = 0; j < chaseWidth; j++) {
                 const field = (j + 10).toString(36).toUpperCase();
                 row[field] = chaseDepth
                     ? depthTimesBetPercentage + parseFloat(betSize)

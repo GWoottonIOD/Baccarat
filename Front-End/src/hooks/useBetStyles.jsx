@@ -10,12 +10,12 @@ export default function useBetStyles() {
     setBetStyle} = useBetStyleContext()
 
   const arr = [
-    <DropDown name="Starting Streak" options={streakLength} setOption={setStreakLength} />,
-    <DropDown name="Bet Size" options={betSize} setOption={setBetSize} />,
-    <DropDown name="Chase Length" options={chaseLength} setOption={setChaseLength} />,
-    <DropDown name="Number of Players" options={numberOfPlayers} setOption={setNoOfPlayers} />,
-    <DropDown name="Chase Depth" options={chaseDepth} setOption={setChaseDepth} />,
-    <DropDown name="Chase Width" options={chaseWidth} setOption={setChaseWidth} />,
+    <DropDown name="Starting Streak" options={streakLength} setOption={setStreakLength} parse={true}/>,
+    <DropDown name="Bet Size" options={betSize} setOption={setBetSize} parse={true}/>,
+    <DropDown name="Chase Length" options={chaseLength} setOption={setChaseLength} parse={true}/>,
+    <DropDown name="Number of Players" options={numberOfPlayers} setOption={setNoOfPlayers} parse={true}/>,
+    <DropDown name="Chase Depth" options={chaseDepth} setOption={setChaseDepth} parse={true}/>,
+    <DropDown name="Chase Width" options={chaseWidth} setOption={setChaseWidth} parse={true}/>,
   ]
 
   const initialState = null
