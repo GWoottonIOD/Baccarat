@@ -10,7 +10,7 @@ export default function useBetStyles() {
     setBetStyle} = useBetStyleContext()
 
   const arr = [
-    <DropDown name="Streak Length" options={streakLength} setOption={setStreakLength} />,
+    <DropDown name="Starting Streak" options={streakLength} setOption={setStreakLength} />,
     <DropDown name="Bet Size" options={betSize} setOption={setBetSize} />,
     <DropDown name="Chase Length" options={chaseLength} setOption={setChaseLength} />,
     <DropDown name="Number of Players" options={numberOfPlayers} setOption={setNoOfPlayers} />,

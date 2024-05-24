@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useBetStyleContext } from '../../context/BetStyleContext'
 import { SingleBet } from '../../rules/BettingRules'
 import { useStreakContext } from '../../context/StreakContext'
+import { Typography } from '@mui/material'
 
 export default function ReccomendedBet() {
     const { streakLength, betSize, chaseLength, noOfPlayers,
@@ -20,6 +21,10 @@ export default function ReccomendedBet() {
     },[streak])
 
   return (
-    <div>Recommended bet: {recommendation} </div>
+    <>
+        <Typography>
+            Recommended bet: <br />{recommendation} 
+        </Typography>
+    </>
   )
 }
