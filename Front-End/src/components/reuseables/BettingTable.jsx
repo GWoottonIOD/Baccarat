@@ -9,8 +9,25 @@ export default function BettingTable() {
         chaseDepth, chaseWidth, betStyle} = useBetStyleContext()
 
     useEffect(() => {
-        const chaseTimesWidth = chaseLength * chaseWidth
-        const percentage = chaseTimesWidth / 100
+        let weighted = true
+        const chaseLengthPlusOne = chaseLength + 1
+        const chaseLengthTimesWidth = chaseLengthPlusOne * chaseWidth
+        const weightedWidth = (1 / chaseWidth) + 1
+        const weightedLength = (1 / chaseLength) + 1
+        const weightedWidthMedium = (.85 / chaseWidth) + 1
+        const weightedLengthMedium = (.85 / chaseLength) + 1
+        const weightedWidthSmall = (.70 / chaseWidth) + 1
+        const weightedLengthSmall = (.70 / chaseLength) + 1
+        const weightedWidthTimesBetSize = weightedWidth * parseFloat(betSize)
+        const weightedLengthTimesBetSize = weightedLength * parseFloat(betSize)
+        const weightedWidthMediumTimesBetSize = weightedWidthMedium * parseFloat(betSize)
+        const weightedLengthMediumTimesBetSize = weightedLengthMedium * parseFloat(betSize)
+        const weightedWidthSmallTimesBetSize = weightedWidthSmall * parseFloat(betSize)
+        const weightedLengthSmallTimesBetSize = weightedLengthSmall * parseFloat(betSize)
+        console.log('wightedWidth', weightedWidthTimesBetSize, 'weightedLength', weightedLengthTimesBetSize)
+        console.log('wightedWidthMedium', weightedWidthMediumTimesBetSize, 'weightedLengthMedium', weightedLengthMediumTimesBetSize)
+        console.log('wightedWidthSmall', weightedWidthSmallTimesBetSize, 'weightedLengthSmall', weightedLengthSmallTimesBetSize)
+        const percentage = 1 / chaseLengthTimesWidth
         const depthTimesBet = chaseDepth * parseFloat(betSize)
         const depthTimesBetPercentage = depthTimesBet * percentage
         let tempColumns = [{
@@ -26,11 +43,46 @@ export default function BettingTable() {
                 width: 80
             })
         }
-        for (let i = streakLength? streakLength : 2; i < chaseLength + streakLength + 1; i++) {
+        if (weighted) {
+            for (let i = streakLength? streakLength : 2; i < chaseLength + streakLength + 1; i++) {
+                let row = {
+                    id: i,
+                    streakLength: i,
+                }
+                for (let j = 0; j < chaseWidth; j++) {
+                    const field = (j + 10).toString(36).toUpperCase();
+                    if (j <= chaseLength / 3) { 
+                        row[field] = chaseDepth
+                            ? depthTimesBetPercentage + weightedLengthSmallTimesBetSize
+                            : parseFloat(betSize);
+                     }
+                    else if (j <= chaseLength / 3 * 2 && j >= chaseLength / 3) { 
+                        row[field] = chaseDepth
+                            ? depthTimesBetPercentage + weightedLengthMediumTimesBetSize
+                            : parseFloat(betSize);
+                     }
+                    else if (j <= chaseLength && j >= chaseLength / 3 ) { 
+                        row[field] = chaseDepth
+                            ? depthTimesBetPercentage + weightedLengthTimesBetSize
+                            : parseFloat(betSize);
+                     }
+                    else {
+                        row[field] = chaseDepth
+                        ? depthTimesBetPercentage + parseFloat(betSize)
+                        : parseFloat(betSize);
+                    }
+                }
+    
+                tempRows.push(row)
+            }
+        }
+        else { 
+            for (let i = streakLength? streakLength : 2; i < chaseLength + streakLength + 1; i++) {
             let row = {
                 id: i,
                 streakLength: i,
             }
+        }
 
             for (let j = 0; j < chaseWidth; j++) {
                 const field = (j + 10).toString(36).toUpperCase();
