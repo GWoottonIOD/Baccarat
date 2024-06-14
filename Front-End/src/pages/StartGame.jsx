@@ -9,8 +9,8 @@ import BettingTable from '../components/reuseables/BettingTable';
 import { useBetStyleContext } from '../context/BetStyleContext';
 
 export default function StartGame() {
-    const {hand, setHand} = useHandContext()
-    const {betStyle} = useBetStyleContext()
+    const { hand, setHand } = useHandContext()
+    const { betStyle } = useBetStyleContext()
 
     return (
         <Container sx={{ py: 6 }} maxWidth="md">
@@ -24,15 +24,13 @@ export default function StartGame() {
                     justifyContent: 'center'
                 }}
             >
-                <form>
-                    {betStyle==='3-Way Chasing'
-                        ?<BettingTable/>
-                        :null}
-                    <BetStyleButton/>
-                    <ShowStreak/>
-                    <AddCards hand={hand} setHand={setHand}/>
-                    <ReccomendedBet/>
-                </form>
+                {betStyle === '3-Way Chasing'
+                    ? <BettingTable />
+                    : null}
+                <BetStyleButton /><br/>
+                <ShowStreak />
+                <AddCards hand={hand} setHand={setHand} />
+                <ReccomendedBet />
             </Box>
         </Container>
     )
