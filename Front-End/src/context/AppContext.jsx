@@ -3,13 +3,10 @@ import { CurrentUserHolder } from '../context/CurrentUserContext';
 import { StreakHolder } from './StreakContext';
 import { SearchHolder } from '../context/SearchContext';
 import { UserContextHolder } from '../context/UserContext';
-import AppRoutes from '../routes/AppRoutes';
-import Navbar from '../NavBar';
-import Footer from '../Footer';
 import { BetStyleHolder } from './BetStyleContext';
 import { HandHolder } from './HandContext';
 
-export default function AppContext() {
+export default function AppContext(props) {
   return (
     <CurrentUserHolder>
       <BetStyleHolder>
@@ -17,9 +14,7 @@ export default function AppContext() {
           <HandHolder>
             <SearchHolder>
               <UserContextHolder>
-                <Navbar />
-                <AppRoutes />
-                <Footer />
+                {props.children}
               </UserContextHolder>
             </SearchHolder>
           </HandHolder>

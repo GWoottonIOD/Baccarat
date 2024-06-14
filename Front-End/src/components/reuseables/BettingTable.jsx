@@ -10,26 +10,20 @@ export default function BettingTable() {
 
     useEffect(() => {
         let weighted = true
-        const chaseLengthPlusOne = chaseLength + 1
-        const chaseLengthTimesWidth = chaseLengthPlusOne * chaseWidth
-        const weightedWidth = (1 / chaseWidth) + 1
-        const weightedLength = (1 / chaseLength) + 1
-        const weightedWidthMedium = (.85 / chaseWidth) + 1
-        const weightedLengthMedium = (.85 / chaseLength) + 1
-        const weightedWidthSmall = (.70 / chaseWidth) + 1
-        const weightedLengthSmall = (.70 / chaseLength) + 1
-        const weightedWidthTimesBetSize = weightedWidth * parseFloat(betSize)
-        const weightedLengthTimesBetSize = weightedLength * parseFloat(betSize)
-        const weightedWidthMediumTimesBetSize = weightedWidthMedium * parseFloat(betSize)
-        const weightedLengthMediumTimesBetSize = weightedLengthMedium * parseFloat(betSize)
-        const weightedWidthSmallTimesBetSize = weightedWidthSmall * parseFloat(betSize)
-        const weightedLengthSmallTimesBetSize = weightedLengthSmall * parseFloat(betSize)
-        // console.log('wightedWidth', weightedWidthTimesBetSize, 'weightedLength', weightedLengthTimesBetSize)
-        // console.log('wightedWidthMedium', weightedWidthMediumTimesBetSize, 'weightedLengthMedium', weightedLengthMediumTimesBetSize)
-        // console.log('wightedWidthSmall', weightedWidthSmallTimesBetSize, 'weightedLengthSmall', weightedLengthSmallTimesBetSize)
+        const chaseLengthTimesWidth = chaseLength * chaseWidth
         const percentage = 1 / chaseLengthTimesWidth
+        const smallPercentage = .4 * percentage
+        const smallMediumPercentage = .6 * percentage
+        const mediumPercentage = .70 * percentage
+        const largeMediumPercentage = .7 * percentage
+        const largestPercentage = .8 * percentage
         const depthTimesBet = chaseDepth * parseFloat(betSize)
-        const depthTimesBetPercentage = depthTimesBet * percentage
+        const smallPerDepthTimesBet = smallPercentage * depthTimesBet 
+        const smallMediumPerDepthTimesBet = smallMediumPercentage * depthTimesBet
+        const mediumPerDepthTimesBet = mediumPercentage * depthTimesBet
+        const largeMediumPerDepthTimesBet = largeMediumPercentage * depthTimesBet
+        const largestPerDepthTimesBet = largestPercentage * depthTimesBet
+        const depthTimesBetPercentage = percentage * depthTimesBet
         let tempColumns = [{
             field: 'streakLength',
             headerName: 'Streak Length',
@@ -51,41 +45,52 @@ export default function BettingTable() {
                 }
                 for (let j = 0; j < chaseWidth; j++) {
                         const field = (j + 10).toString(36).toUpperCase();
-                        if (j <= chaseWidth / chaseWidth) {
+                        if (j <= chaseWidth / 4) {
                             if (row.streakLength === chaseLength + streakLength) {
                                 row[field] = chaseDepth
-                                    ? depthTimesBetPercentage + weightedLengthTimesBetSize
+                                    ? largeMediumPerDepthTimesBet + parseFloat(betSize)
                                     : parseFloat(betSize);
                             }
                             else if (row.streakLength === chaseLength + streakLength - 1 ) {
                                 row[field] = chaseDepth
-                                    ? depthTimesBetPercentage + weightedLengthMediumTimesBetSize
+                                    ? smallMediumPerDepthTimesBet + parseFloat(betSize)
                                     : parseFloat(betSize);
                             }
                             else {row[field] = chaseDepth
-                                ? depthTimesBetPercentage + weightedLengthSmallTimesBetSize
+                                ? smallPerDepthTimesBet + parseFloat(betSize)
                                 : parseFloat(betSize);
                             }
                         }
-                        else if (j <= chaseWidth / chaseWidth * 2 && j >= chaseWidth / chaseWidth) {
+                        else if (j <= chaseWidth / 2 && j >= chaseWidth / 4) {
                             if (row.streakLength === chaseLength + streakLength) {
                                 row[field] = chaseDepth
-                                    ? depthTimesBetPercentage + weightedLengthTimesBetSize
+                                    ? largeMediumPerDepthTimesBet + parseFloat(betSize)
                                     : parseFloat(betSize);
                             }
                             else {row[field] = chaseDepth
-                                ? depthTimesBetPercentage + weightedLengthMediumTimesBetSize
+                                ? smallMediumPerDepthTimesBet + parseFloat(betSize)
                                 : parseFloat(betSize);
                             }
                         }
-                        else if (j <= chaseWidth && j >= chaseWidth / chaseWidth * 2) {
+                        else if (j <= (chaseWidth / 4) * 3 && j >= chaseWidth / 2 ) {
                             if (row.streakLength === chaseLength + streakLength) {
                                 row[field] = chaseDepth
-                                    ? depthTimesBetPercentage + weightedLengthTimesBetSize
+                                    ? largeMediumPerDepthTimesBet + parseFloat(betSize)
                                     : parseFloat(betSize);
                             }
                             else {row[field] = chaseDepth
-                                ? depthTimesBetPercentage + weightedLengthTimesBetSize
+                                ? largeMediumPerDepthTimesBet + parseFloat(betSize)
+                                : parseFloat(betSize);
+                            }
+                        }
+                        else if (j <= chaseWidth && j >= (chaseWidth / 4) * 3 ) {
+                            if (row.streakLength === chaseLength + streakLength) {
+                                row[field] = chaseDepth
+                                    ? largestPerDepthTimesBet + parseFloat(betSize)
+                                    : parseFloat(betSize);
+                            }
+                            else {row[field] = chaseDepth
+                                ? largestPerDepthTimesBet + parseFloat(betSize)
                                 : parseFloat(betSize);
                             }
                         }
