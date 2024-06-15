@@ -5,6 +5,7 @@ import DropDown from '../../reuseables/DropDown';
 import AddButton from './AddButton';
 import usePlayer from '../../../hooks/usePlayer';
 import Results from '../Results';
+import ReccomendedBet from '../ReccomendedBet';
 
 export default function AddToHand() {
     const [number, setNumber] = useState([]);
@@ -34,7 +35,8 @@ export default function AddToHand() {
                 </>
                 : null}
             <CardContent sx={{ flexGrow: 2 }}>
-                <Results />
+                <Results /><br/>
+                <ReccomendedBet/>
             </CardContent>
         </Card>
 

@@ -20,10 +20,12 @@ export default function Theme(props) {
         {/* Hero unit */}
         <Box
                 sx={{
-                    bgcolor: 'background.paper',
-                    pt: 0,
-                    pb: 0,
-                    mt: -10,
+                  bgcolor: 'background.paper',
+                  my: -10,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}
                 >
                     <Container maxWidth="m">
@@ -34,7 +36,7 @@ export default function Theme(props) {
                         color="text.primary"
                         gutterBottom
                         >
-                          {props.component}
+                          {props.children}
                         </Typography>
                     </Container>
                 </Box>

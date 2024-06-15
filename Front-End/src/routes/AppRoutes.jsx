@@ -16,15 +16,15 @@ export default function AppRoutes() {
     return (
         <>
             <Routes>
-                <Route path="/*" element={<Theme component={<PNF />} />}/>
-                <Route path='/login' element={<Theme component={<NewLogin />} />} />
-                <Route path='/startGame' element={<ProtectedRoute><Theme component={<StartGame />} /></ProtectedRoute>} />
+                <Route path="/*" element={<Theme><PNF /></Theme> } />
+                <Route path='/login' element={<Theme><NewLogin /></Theme> } />
+                <Route path='/startGame' element={<ProtectedRoute><Theme><StartGame /></Theme> </ProtectedRoute>} />
                 <Route path='/userinfo' >
-                    <Route path=':id' element={<ProtectedRoute><Theme component={<UserInfoEdit />} /></ProtectedRoute>} />
+                    <Route path=':id' element={<ProtectedRoute><Theme><UserInfoEdit /></Theme></ProtectedRoute>} />
                 </Route>
-                <Route path='/gameHistory' element={<ProtectedRoute><Theme component={<GameHistory />} /></ProtectedRoute>} />
-                <Route path='/profile' element={<ProtectedRoute><Theme component={<Profile />} /></ProtectedRoute>} />
-                <Route path='/pna' element={<Theme component={<PageNotAllowed />} />} />
+                <Route path='/gameHistory' element={<ProtectedRoute><Theme><GameHistory /></Theme></ProtectedRoute>} />
+                <Route path='/profile' element={<ProtectedRoute><Theme><Profile /></Theme></ProtectedRoute>} />
+                <Route path='/pna' element={<Theme><PageNotAllowed /></Theme> } />
             </Routes>
         </>
     )

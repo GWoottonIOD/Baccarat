@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <>
             {/* Footer */}
-            <Box sx={{ bgcolor: 'background.paper', p: 0 }} component="footer">
+            <Box sx={{ bgcolor: 'background.paper', my: 3 }} component="footer">
                 <Typography variant="h6" align="center" gutterBottom>
                     Baccarat Central
                 </Typography>
