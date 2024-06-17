@@ -41,97 +41,33 @@ export default function useEndBottom() {
                 for (let j = 0; j < chaseWidth; j++) {
                         const field = (j + 10).toString(36).toUpperCase();
                         console.log(field,row.streakLength)
-                        if (j <= chaseWidth / 4) {
-                            if (row.streakLength === chaseLength + streakLength - 1) {
+                            if (field === (chaseWidth + 9).toString(36).toUpperCase() || row.streakLength === chaseLength + streakLength - 1) {
                                 console.log(100*largestPercentage)
                                 row.per.push(largestPercentage)
                                 row[field] = chaseDepth
                                     ? largestPercentage * depthTimesBet + parseFloat(betSize)
                                     : parseFloat(betSize);
                             }
-                            else if (row.streakLength === chaseLength + streakLength - 2) {
+                            else if (field === (chaseWidth + 8).toString(36).toUpperCase() || row.streakLength === chaseLength + streakLength - 2) {
                                 console.log(100*largeMediumPercentage)
                                 row.per.push(largeMediumPercentage)
                                 row[field] = chaseDepth
                                     ? largeMediumPercentage * depthTimesBet + parseFloat(betSize)
                                     : parseFloat(betSize);
                             }
-                            else if (row.streakLength > streakLength || field!=='A') {
+                            else if (field === (chaseWidth + 7).toString(36).toUpperCase() || row.streakLength === chaseLength + streakLength - 3 
+                                || field === (chaseWidth + 6).toString(36).toUpperCase() || row.streakLength === chaseLength + streakLength - 4) {
                                 row.per.push(smallMediumPercentage)
                                 row[field] = chaseDepth
                                     ? smallMediumPercentage * depthTimesBet + parseFloat(betSize)
                                     : parseFloat(betSize);
                             }
-                            else if (row.streakLength === streakLength) {
-                                console.log(100*smallPercentage)
+                            else if (field === (chaseWidth + 5).toString(36).toUpperCase() || row.streakLength === streakLength) {
                                 row.per.push(smallPercentage)
                                 row[field] = chaseDepth
                                 ? smallPercentage * depthTimesBet + parseFloat(betSize)
                                 : parseFloat(betSize);
                             }
-                        }
-                        else if (j <= chaseWidth / 2 && j >= chaseWidth / 4) {
-                            if (row.streakLength === chaseLength + streakLength - 1) {
-                                console.log(100*largestPercentage)
-                                row.per.push(largestPercentage)
-                                row[field] = chaseDepth
-                                    ? largestPercentage * depthTimesBet + parseFloat(betSize)
-                                    : parseFloat(betSize);
-                            }
-                            else if (row.streakLength === chaseLength + streakLength - 2) {
-                                console.log(100*largeMediumPercentage)
-                                row.per.push(largeMediumPercentage)
-                                row[field] = chaseDepth
-                                    ? largeMediumPercentage * depthTimesBet + parseFloat(betSize)
-                                    : parseFloat(betSize);
-                            }
-                            else {
-                                console.log(100*smallMediumPercentage)
-                                row.per.push(smallMediumPercentage)
-                                row[field] = chaseDepth
-                                ? smallMediumPercentage * depthTimesBet + parseFloat(betSize)
-                                : parseFloat(betSize);
-                            }
-                        }
-                        else if (j <= (chaseWidth / 4) * 3 && j >= chaseWidth / 2 ) {
-                            if (row.streakLength === chaseLength + streakLength - 1) {
-                                console.log(100*largestPercentage)
-                                row.per.push(largestPercentage)
-                                row[field] = chaseDepth
-                                    ? largestPercentage * depthTimesBet + parseFloat(betSize)
-                                    : parseFloat(betSize);
-                            }
-                            else if (row.streakLength === chaseLength + streakLength) {
-                                console.log(100*largeMediumPercentage)
-                                row.per.push(largeMediumPercentage)
-                                row[field] = chaseDepth
-                                    ? largeMediumPercentage * depthTimesBet + parseFloat(betSize)
-                                    : parseFloat(betSize);
-                            }
-                            else {
-                                console.log(100*largeMediumPercentage)
-                                row.per.push(largeMediumPercentage)
-                                row[field] = chaseDepth
-                                ? largeMediumPercentage * depthTimesBet + parseFloat(betSize)
-                                : parseFloat(betSize);
-                            }
-                        }
-                        else if (j <= chaseWidth && j >= (chaseWidth / 4) * 3 ) {
-                            if (row.streakLength === chaseLength + streakLength) {
-                                console.log(100*largestPercentage)
-                                row.per.push(largestPercentage)
-                                row[field] = chaseDepth
-                                    ? largestPercentage * depthTimesBet + parseFloat(betSize)
-                                    : parseFloat(betSize);
-                            }
-                            else {
-                                console.log(100*largestPercentage)
-                                row.per.push(largestPercentage)
-                                row[field] = chaseDepth
-                                ? largestPercentage * depthTimesBet + parseFloat(betSize)
-                                : parseFloat(betSize);
-                            }
-                        }
                         else {
                             console.log('nothing hopefully')
                             row[field] = chaseDepth
