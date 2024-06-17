@@ -1,9 +1,9 @@
 import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import useThreeWayChaseLogic from '../../hooks/useThreeWayChaseLogic';
+import useEndBottom from '../../hooks/useEndBottom';
 
 export default function BettingTable() {
-    const chaseLogic = useThreeWayChaseLogic()
+    const chaseLogic = useEndBottom()
     return (
         <div style={{ height: 400, width: '100%' }}>
             <DataGrid
