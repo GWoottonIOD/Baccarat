@@ -18,7 +18,7 @@ export default function StartGame() {
             <Box
                 sx={{
                     bgcolor: 'background.paper',
-                    pt: 5,
+                    pt: 15,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',

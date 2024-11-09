@@ -5,7 +5,7 @@ const redis = require("redis"); // Require the redis package
 let dbConnect = require("./dbConnect");
 
 var corsOptions = {
-    origin: "http://192.168.1.73:5174"
+    origin: ["http://localhost:5173","http://192.168.1.73:5174"]
 };
 
 const app = express();
