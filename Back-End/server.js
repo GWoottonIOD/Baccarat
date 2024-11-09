@@ -1,16 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const http = require('http');
-const socketIo = require("./libraries/socket"); // Import the Socket.IO setup function
 const redis = require("redis"); // Require the redis package
 let dbConnect = require("./dbConnect");
 
 var corsOptions = {
-    origin: "http://localhost:5173"
+    origin: "http://192.168.1.73:5174"
 };
 
-const Controllers = require('./controllers');
 const app = express();
 
 const client = redis.createClient({
@@ -20,30 +17,14 @@ const client = redis.createClient({
 
 app.use(cors(corsOptions));
 
-const server = http.createServer(app);
-const io = socketIo(server); // Initialize Socket.IO using the imported function
-
 // parse requests of content-type - application/json
 app.use(express.json());
 
-let debtRoutes = require('./routes/debtRoutes');
-app.use('/api/debts', debtRoutes);
-
-let userRoutes = require('./routes/userRoutes');
-app.use('/api/users', userRoutes);
-
-let paymentRoutes = require('./routes/paymentRoutes');
-app.use('/api/payments', paymentRoutes);
-
-let dynamicRoutes = require('./routes/dynamicRoutes');
-app.use('/api/dynamic', dynamicRoutes);
+let shoeRoutes = require('./routes/shoeRoutes');
+app.use('/api/shoes', shoeRoutes);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
-});
-
-io.listen(3001, () => {
-    console.log('Socket.IO server is running on port 3001');
 });
