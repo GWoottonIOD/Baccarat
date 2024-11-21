@@ -17,7 +17,7 @@ export default function AppRoutes() {
         <>
             <Routes>
                 {/* <Route path="/*" element={<Theme><PNF /></Theme> } /> */}
-                <Route path='/startGame' element={<Theme><StartGame /></Theme>} />
+                <Route index path='/startGame' element={<Theme><StartGame /></Theme>} />
                 {/* <Route path='/login' element={<Theme><NewLogin /></Theme> } />
                 <Route path='/startGame' element={<ProtectedRoute><Theme><StartGame /></Theme> </ProtectedRoute>} />
                 <Route path='/userinfo' >

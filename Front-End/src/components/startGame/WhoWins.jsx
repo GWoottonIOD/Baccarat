@@ -11,6 +11,13 @@ export default function WhoWins() {
         console.log([...streak, winner])
     }
 
+    const undo = () => {
+        const updatedStreak = [...streak]
+        updatedStreak.pop()
+        console.log(updatedStreak)
+        setStreak(updatedStreak)
+    }
+
     return (
         <>
             <Box
@@ -71,7 +78,23 @@ export default function WhoWins() {
             }>
                 Finish Shoe
             </Button></Box>
-            
+            <Box
+                sx={{
+                    bgcolor: 'background.paper',
+                    pt: 15,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+                <Button variant="outlined" color="error" onClick={undo}>
+                    Undo
+                </Button>
+                <Button variant="outlined" color="error" onClick={() => setStreak([])}>
+                    Clear streak
+                </Button>
+            </Box>
         </>
     )
 }

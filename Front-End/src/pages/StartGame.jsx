@@ -8,6 +8,7 @@ import BettingTable from '../components/reuseables/BettingTable';
 import { useBetStyleContext } from '../context/BetStyleContext';
 import WhoWins from '../components/startGame/WhoWins';
 import ShowBasicStreak from '../components/startGame/ShowBasicStreak';
+import StartServer from '../components/startGame/StartServer';
 
 export default function StartGame() {
     const { hand, setHand } = useHandContext()
@@ -25,11 +26,12 @@ export default function StartGame() {
                     justifyContent: 'center'
                 }}
             >
-                {betStyle === '3-Way Chasing'
+                {/* {betStyle === '3-Way Chasing'
                     ? <BettingTable />
-                    : null}
+                    : null} */}
                 {/* <BetStyleButton /><br/> */}
                 {/* <ShowStreak /> */}
+                <StartServer/>
                 <ShowBasicStreak/>
                 <WhoWins/>
                 {/* <AddCards hand={hand} setHand={setHand} /> */}
