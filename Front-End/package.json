@@ -5,13 +5,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"npm run server\"",
+    "dev": "vite",
     "quit": "killall node",
     "server": "cd .. && cd ./Back-End && npm start",
-    "serverBackup": "cd .. & cd Back-End & npm start",
     "build": "vite build",
     "preview": "vite preview",
-    "host": "vite --host",
+    "host": "concurrently \"vite --host\" \"npm run server\"",
     "ionic:build": "npm run build",
     "ionic:serve": "vite dev --host"
   },
