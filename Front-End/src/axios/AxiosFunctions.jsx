@@ -19,7 +19,8 @@ export const readQuery = (table, filter, userIsolate) => {
     ? userIsolate
         ? `${window.location.origin.slice(0,-5)}:8064/api/${table}/${userIsolate}/${filter}` 
         : `${window.location.origin.slice(0,-5)}:8064/api/${table}/${filter}`
-    : `${window.location.origin.slice(0,-5)}:8064/api/${table}/`
+    // : `${window.location.origin.slice(0,-5)}:8064/api/${table}/`
+        : `http://192.168.1.73:8064/api/${table}/`
     return axios.get(axdebts)
         .then(response => { 
             console.log(response.data.data);

@@ -23,7 +23,7 @@ export default function WhoWins() {
             <Box
                 sx={{
                     bgcolor: 'background.paper',
-                    pt: 15,
+                    pt: 5,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -81,7 +81,7 @@ export default function WhoWins() {
             <Box
                 sx={{
                     bgcolor: 'background.paper',
-                    pt: 15,
+                    pt: 5,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -91,6 +91,17 @@ export default function WhoWins() {
                 <Button variant="outlined" color="error" onClick={undo}>
                     Undo
                 </Button>
+                </Box>
+                <Box
+                sx={{
+                    bgcolor: 'background.paper',
+                    pt: 5,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
                 <Button variant="outlined" color="error" onClick={() => setStreak([])}>
                     Clear streak
                 </Button>

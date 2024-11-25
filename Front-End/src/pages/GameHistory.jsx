@@ -1,23 +1,25 @@
 import React from 'react';
-import { CssBaseline, Container, Typography } from '@mui/material';
-import BasicLineChart from '../components/gameHistory/Chart';
+import { Container, Box, Typography } from '@mui/material';
 import { useSearchContext } from '../context/SearchContext';
+import Analytics from '../components/gameHistory/Analytics';
 
 export default function GameHistory() {
   const { query } = useSearchContext();
 
   return (
-    <>
-      <CssBaseline />
-      <main>
-        <Container sx={{ py: 14,  }} maxWidth="md">
-          <Typography>
-            A list of played games
-          </Typography>
-          <br />
-          <BasicLineChart/>
-        </Container>
-      </main>
-      </>
+    <Container sx={{ py: 6 }} maxWidth="md">
+      <Box
+        sx={{
+          bgcolor: 'background.paper',
+          pt: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <Analytics/>
+      </Box>
+    </Container>
   );
 }
