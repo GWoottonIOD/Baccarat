@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useStreakContext } from '../../context/StreakContext'
 import { Typography } from '@mui/material'
+import { useCurrentStreakContext } from '../../context/CurrentStreakContext'
 
 export default function ShowStreak() {
   const { streak } = useStreakContext()
+  const { setCurrentStreak } = useCurrentStreakContext()
   const [streakStatus, setStreakStatus] = useState(`No streak`)
   let streakLength = 1
   let streakType;
@@ -16,12 +18,16 @@ export default function ShowStreak() {
 
     if (streakType === 'P') {
       setStreakStatus(`Player's streak ${streakLength}`)
+      setCurrentStreak({streak: 'Player', length: streakLength})
     } else if (streakType === 'B') {
       setStreakStatus(`Banker's streak ${streakLength}`)
+      setCurrentStreak({streak: 'Banker', length: streakLength})
     } else if (streakType === 'A') {
       setStreakStatus(`Alternating streak ${streakLength}`)
+      setCurrentStreak({streak: 'Alternating', length: streakLength})
     } else if (streakType === 'N') {
       setStreakStatus(`No streak`)
+      setCurrentStreak({streak: 'None', length: 1})
       streakLength = 1
     }
   }
@@ -69,6 +75,7 @@ export default function ShowStreak() {
       <Typography>
         Streak: <br />
         {streakStatus}
+        {/* {currentStreak.streak} streak {currentStreak.length} */}
       </Typography>
     </>
   )

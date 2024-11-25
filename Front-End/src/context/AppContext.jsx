@@ -5,21 +5,24 @@ import { SearchHolder } from '../context/SearchContext';
 import { UserContextHolder } from '../context/UserContext';
 import { BetStyleHolder } from './BetStyleContext';
 import { HandHolder } from './HandContext';
+import { CurrentStreakHolder } from './CurrentStreakContext';
 
 export default function AppContext(props) {
   return (
     <CurrentUserHolder>
-      <BetStyleHolder>
-        <StreakHolder>
-          <HandHolder>
-            <SearchHolder>
-              <UserContextHolder>
-                {props.children}
-              </UserContextHolder>
-            </SearchHolder>
-          </HandHolder>
-        </StreakHolder>
-      </BetStyleHolder>
+      <CurrentStreakHolder>
+        <BetStyleHolder>
+          <StreakHolder>
+            <HandHolder>
+              <SearchHolder>
+                <UserContextHolder>
+                  {props.children}
+                </UserContextHolder>
+              </SearchHolder>
+            </HandHolder>
+          </StreakHolder>
+        </BetStyleHolder>
+      </CurrentStreakHolder>
     </CurrentUserHolder>
   )
 }
