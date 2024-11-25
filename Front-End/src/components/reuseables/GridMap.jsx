@@ -4,7 +4,7 @@ import { Grid, Box, Container } from '@mui/material'
 export default function GridMap(props) {
   return (
     <>
-      <Container sx={{ py: 6 }} maxWidth="md">
+      <Container sx={{}} maxWidth="xs">
         <Box
           sx={{
             bgcolor: 'background.paper',
@@ -14,10 +14,10 @@ export default function GridMap(props) {
             justifyContent: 'center'
           }}
         >
-          <Grid container spacing={5}>
+          <Grid container spacing={0} xs={5.85} s={5.85} md={5.85} lg={5.85} xl={5.85}>
             <br />
             {props.iterations.map((element, index) => (
-              <Grid item key={index} lg={3}>
+              <Grid item key={index} >
                 {element}
               </Grid>
             ))}

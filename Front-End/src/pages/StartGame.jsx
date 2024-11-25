@@ -29,7 +29,7 @@ export default function StartGame() {
                     ? <BettingTable />
                     : null}
                 <BetStyleButton /><br/>
-                {/* <ShowStreak /> */}
+                <ShowStreak />
                 <ShowBasicStreak/>
                 <WhoWins/>
                 {/* <AddCards hand={hand} setHand={setHand} /> */}

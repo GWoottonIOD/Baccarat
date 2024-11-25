@@ -26,11 +26,11 @@ export default function BetStyles() {
                     }}
                 >
                     <DropDown name="Bet Style" options={betStyle} setOption={setOption} />
-                </Box>
                 <br />
                 {logicalOption
                     ? <GridMap iterations={logicalOption} />
                     : null}
+                    </Box>
             </Container>
         </>
     )

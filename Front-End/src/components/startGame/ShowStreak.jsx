@@ -4,65 +4,64 @@ import { Typography } from '@mui/material'
 
 export default function ShowStreak() {
   const { streak } = useStreakContext()
-  const [streakStatus, setStreakStatus] = useState(null)
+  const [streakStatus, setStreakStatus] = useState(`No streak`)
+  let streakLength = 1
+  let streakType;
+
+  const streakLogic = (current) => {
+    console.log('streakType', streakType)
+    console.log('is streakType current?',  streakType === current)
+    streakLength = streakType === current ? streakLength + 1 : 2
+    streakType = current;
+
+    if (streakType === 'P') {
+      setStreakStatus(`Player's streak ${streakLength}`)
+    } else if (streakType === 'B') {
+      setStreakStatus(`Banker's streak ${streakLength}`)
+    } else if (streakType === 'A') {
+      setStreakStatus(`Alternating streak ${streakLength}`)
+    } else if (streakType === 'N') {
+      setStreakStatus(`No streak`)
+      streakLength = 1
+    }
+  }
 
   useEffect(() => {
-    let streakType = ''; // 'P' for player, 'B' for banker, 'A' for alternating
-    let streakLength = 1;
+    const removeT = streak.filter((i)=> i !== 'T')
 
     for (let i = 1; i < streak.length; i++) {
-      const current = streak[i];
-      const prev = streak[i - 1];
-      const prevPrev = streak[i - 2];
+      const latest = streak[i];
+      const current = removeT[i];
+      const prev = removeT[i - 1];
 
-       if (current === prev) {
-        if (prevPrev) {
-          if (prevPrev !== current) {
-            streakLength = 2
-            streakType = current;
-          }
-        }
-        else if (current !== 'T') {
-            streakType = current;
-            streakLength++;
-      }
-      }
-      else if (streakType === current) {
-        streakLength++;
-      } 
-      else if (current === 'T' || prev === 'T') {
-        console.log('Ignoring the T')
-      } 
-      else if (current === 'P' && prev === 'B') {
-        if (prevPrev === 'B') {
+      console.log('Before removed T:', removeT)
+
+      if (current === prev) {
+        if (streakType === 'A') {
           streakLength = 1
+          streakLogic(current)
         }
-        streakType = 'A';
-        streakLength++;
+        else streakLogic(current)
+      }
+      else if (current === 'P' && prev === 'B') {
+        streakLogic('A')
       }
       else if (current === 'B' && prev === 'P') {
-        if (prevPrev === 'P') {
-          streakLength = 1
-        }
-        streakType = 'A';
-        streakLength++;
+        streakLogic('A')
       }
-      else {
-
-        streakLength = 1; // Reset streak length for the new streak
+      else if (latest === 'T') {
+        streakType = current;
       }
-       // Update streak type for the next iteration
+      else if (current !== prev) {
+        streakLength = 1
+        streakLogic(current)
+      }
+      // Update streak type for the next iteration
+      else if (current) {
+        streakLogic(current)
+      }
     }
 
-    if (streakType === 'P' && streakLength > 1) {
-      setStreakStatus(`Player's streak ${streakLength}`)
-    } else if (streakType === 'B' && streakLength > 1) {
-      setStreakStatus(`Banker's streak ${streakLength}`)
-    } else if (streakType === 'A' && streakLength > 1) {
-      setStreakStatus(`Alternating streak ${streakLength}`)
-    }else {
-      setStreakStatus(`No streak`)
-    }
   }, [streak])
 
   return (
