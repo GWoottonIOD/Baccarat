@@ -56,7 +56,8 @@ export default function Analytics() {
         <>
             <Typography>Analytics</Typography><br />
             <Box
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', pt: 8}}>
+                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', pt: 8 }}>
+                <Typography>Total amount of shoes: {shoeCollection ? shoeCollection.length : null}</Typography>
                 <Typography>Lowest Shoe Length: {lowestShoeLength ? lowestShoeLength : null} </Typography>
                 <Typography>Average Length: {averageShoeLength ? averageShoeLength : null} </Typography>
                 <Typography>Highest Shoe Length: {highestShoeLength ? highestShoeLength : null}</Typography>

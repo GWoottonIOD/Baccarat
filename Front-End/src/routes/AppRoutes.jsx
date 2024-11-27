@@ -17,7 +17,7 @@ export default function AppRoutes() {
         <>
             <Routes>
                 {/* <Route path="/*" element={<Theme><PNF /></Theme> } /> */}
-                <Route index path='/startGame' element={<Theme><StartGame /></Theme>} />
+                <Route index path='/' element={<Theme><StartGame /></Theme>} />
                  <Route path='/gameHistory' element={<Theme><GameHistory /></Theme>} />
                 {/* <Route path='/profile' element={<ProtectedRoute><Theme><Profile /></Theme></ProtectedRoute>} /> 
                 <Route path='/pna' element={<Theme><PageNotAllowed /></Theme> } /> */}

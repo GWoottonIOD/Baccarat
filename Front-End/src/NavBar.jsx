@@ -9,7 +9,7 @@ const Navbar = () => {
   // const {pageType} = useContext(PageTypeContext)
   const location = useLocation();
   const gameHistory = <NavLink id="link" to='/gameHistory' exact="true" forcerefresh="true">Game History</NavLink>
-  const startGame = <NavLink id="link" to='/startGame' exact="true" forcerefresh="true">Start Game</NavLink>
+  const startGame = <NavLink id="link" to='/' exact="true" forcerefresh="true">Start Game</NavLink>
 
   const pathname = location.pathname
   

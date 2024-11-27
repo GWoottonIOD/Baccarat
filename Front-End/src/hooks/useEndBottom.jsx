@@ -13,6 +13,7 @@ export default function useEndBottom() {
 
     useEffect(() => {
         //Add the currentStreaks to an array to figure out what the last streak was.
+        console.log('prevCurrentStreak', prevCurrentStreak)
         setPrevCurrentStreak([...prevCurrentStreak, currentStreak.streak])
         if (currentStreak.streak !== prevCurrentStreak[prevCurrentStreak.length]) {
             console.log('Gocha')
